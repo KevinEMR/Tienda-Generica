@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Eliminar Usuario</title>
+<title><b>Eliminar Usuario</b></title>
 </head>
 <body>
 <% 
