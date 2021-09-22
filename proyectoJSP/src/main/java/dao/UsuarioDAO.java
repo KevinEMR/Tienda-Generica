@@ -10,7 +10,7 @@ import java.util.List;
 import conexionmysql.Conexion;
 import modelo.UsuarioVO;
 
-public class UsuarioDAO extends Conexion implements InterfaceDAO {
+public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
     Connection cn = conectar();
     Statement sm = null;
     ResultSet rs = null;

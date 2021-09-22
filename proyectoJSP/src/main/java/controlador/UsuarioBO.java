@@ -3,12 +3,12 @@ package controlador;
 import java.sql.SQLException;
 import java.util.List;
 
-import dao.InterfaceDAO;
+import dao.InterfaceUsarioDAO;
 import dao.UsuarioDAO;
 import modelo.UsuarioVO;
 
 public class UsuarioBO {
-	private static InterfaceDAO edao;
+	private static InterfaceUsarioDAO edao;
 	private static boolean result;
 	private static int resultado;
 	private static List<UsuarioVO> list;
