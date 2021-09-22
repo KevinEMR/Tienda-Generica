@@ -15,6 +15,11 @@
     <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.css" rel="stylesheet" type="text/css"/>
     <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.rtl.css" rel="stylesheet" type="text/css"/>
 <title>Agregar Usuario</title>
+<style type="text/css">
+#siono{
+display:none;
+}
+</style>
 </head>
 <body background="Imagenes\fondo.png">
 <form id = "U_editar" action = "Usuario_agregar.jsp" method = "post" >
@@ -39,6 +44,10 @@
             <label for="Usuario" class="form-label">Usuario</label>
             <input type="text" class="form-control" name="usuario" >
             </div>
+            <div class="mb-3" id = "siono">
+            <label for="Usuario" class="form-label">Comprobar</label>
+            <input type="text" class="form-control" name="comprobar" value="si" >
+            </div>
             <div class="mb-3 form-check">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
                 <input type="button" onclick="history.back()" class="btn btn-primary" name="Atrás" value="Atrás">
@@ -47,7 +56,10 @@
     </form>
     <%
     try{
-    if(request.getParameter("cedula")!=null){
+    if(request.getParameter("comprobar")!=null){
+    	System.out.println("entro 1");
+    if(request.getParameter("cedula")!=null && request.getParameter("correo")!=null && request.getParameter("nombre")!=null && request.getParameter("contrasena")!=null && request.getParameter("usuario")!=null){
+    	System.out.println("entro 2");
     	long cedula = Long.parseLong((request.getParameter("cedula")));
 		String correo = request.getParameter("correo");
 		String nombre = request.getParameter("nombre");
@@ -62,6 +74,10 @@
 			response.sendRedirect("Usuarios.jsp");
 		}
     }
+    else{
+    	response.sendRedirect("Usuario_agregar_mal.jsp");
+    }
+    	}
     }catch(Exception e){
     	response.sendRedirect("Usuario_agregar_mal.jsp");
     }

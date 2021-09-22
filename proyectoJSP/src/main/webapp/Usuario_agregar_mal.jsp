@@ -42,14 +42,22 @@
             <label for="Usuario" class="form-label">Usuario</label>
             <input type="text" class="form-control" name="usuario" >
             </div>
+    <div class="mb-3" id = "siono">
+            <label for="Usuario" class="form-label">Comprobar</label>
+            <input type="text" class="form-control" name="comprobar" value="si" >
+            </div>
             <div class="mb-3 form-check">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
                 <input type="button" onclick="history.back()" class="btn btn-primary" name="Atrás" value="Atrás">
             </div>
         </div>
     </form>
-    <% 
-    if(request.getParameter("cedula")!=null){
+    <%
+    try{
+    if(request.getParameter("comprobar")!=null){
+    	System.out.println("entro 1");
+    if(request.getParameter("cedula")!=null && request.getParameter("correo")!=null && request.getParameter("nombre")!=null && request.getParameter("contrasena")!=null && request.getParameter("usuario")!=null){
+    	System.out.println("entro 2");
     	long cedula = Long.parseLong((request.getParameter("cedula")));
 		String correo = request.getParameter("correo");
 		String nombre = request.getParameter("nombre");
@@ -60,6 +68,16 @@
 		if(!resultado){
 			response.sendRedirect("Usuario_agregar_mal.jsp");
 		}
+		else{
+			response.sendRedirect("Usuarios.jsp");
+		}
+    }
+    else{
+    	response.sendRedirect("Usuario_agregar_mal.jsp");
+    }
+    	}
+    }catch(Exception e){
+    	response.sendRedirect("Usuario_agregar_mal.jsp");
     }
     %>
 </body>
