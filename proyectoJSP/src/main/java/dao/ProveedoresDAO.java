@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexionmysql.Conexion;
-import modelo.ClienteVO;
+import modelo.ProveedoresVO;
 
 
-public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
+public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO {
     Connection cn = conectar();
     Statement sm = null;
     ResultSet rs = null;
-    private static List<ClienteVO> list;
+    private static List<ProveedoresVO> list;
 	
 	@Override
-	public List<ClienteVO> obtener_todos() {
+	public List<ProveedoresVO> obtener_todos() {
         try {
             sm = cn.createStatement();
             rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes;");
@@ -30,7 +30,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
 				String correo = rs.getString(3);
 				String nombre = rs.getString(4);
 				String telefono = rs.getString(5);
-				ClienteVO clien = new ClienteVO(cedula, direccion, correo, nombre, telefono);
+				ProveedoresVO clien = new ProveedoresVO(cedula, direccion, correo, nombre, telefono);
 				list.add(clien);
             }
             
@@ -47,7 +47,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
 	}
 
 	@Override
-	public boolean actualizar(ClienteVO cliente) {
+	public boolean actualizar(ProveedoresVO cliente) {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
@@ -68,7 +68,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
 	}
 
 	@Override
-	public boolean isertarestudiante(ClienteVO cliente) {
+	public boolean isertarestudiante(ProveedoresVO cliente) {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
@@ -91,7 +91,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
 	}
 
 	@Override
-	public ClienteVO obteneruno(String parametro, String termino) {
+	public ProveedoresVO obteneruno(String parametro, String termino) {
 		 try {
 	            sm = cn.createStatement();
 	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes WHERE " + parametro + " = '" + termino + "';");
@@ -102,7 +102,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
 	                String correo = rs.getString(3);
 	                String nombre = rs.getString(4);
 	                String telefono = rs.getString(5);
-	                ClienteVO clien = new ClienteVO(cedula, direccion, correo, nombre,telefono);
+	                ProveedoresVO clien = new ProveedoresVO(cedula, direccion, correo, nombre,telefono);
 	                return clien;
 	            }
 	        } catch (SQLException e) {
@@ -137,8 +137,8 @@ public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
 	}
 
 	@Override
-	public List<ClienteVO> obtenerporparametro(String parametro, String termino) {
-		List<ClienteVO> clientes;
+	public List<ProveedoresVO> obtenerporparametro(String parametro, String termino) {
+		List<ProveedoresVO> clientes;
         clientes = new ArrayList<>();
         boolean nodatos = true;
         try {
@@ -151,7 +151,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
                 String correo = rs.getString(3);
                 String nombre = rs.getString(4);
                 String telefono = rs.getString(5);
-                ClienteVO clien = new ClienteVO(cedula, direccion, correo, nombre, telefono);
+                ProveedoresVO clien = new ProveedoresVO(cedula, direccion, correo, nombre, telefono);
                 clientes.add(clien);
                 nodatos = false;
             }
