@@ -31,7 +31,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 				String telefono = rs.getString(5);
 				ProveedoresVO prov = new ProveedoresVO(nit, ciudad, direccion, nombre, telefono);
 				list.add(prov);
-            }
+		}
             
         } catch (SQLException e) {
             System.out.println("ERROR: " + e);
@@ -46,7 +46,9 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 	}
 
 	@Override
+
 	public boolean actualizar(ProveedoresVO proveedor) {
+
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
@@ -68,6 +70,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 
 	@Override
 	public boolean isertarestudiante(ProveedoresVO proveedor) {
+
 		boolean resultado = true;
         try {
             sm = cn.createStatement();

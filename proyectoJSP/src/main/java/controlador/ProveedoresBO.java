@@ -28,6 +28,7 @@ public class ProveedoresBO {
 		list = edao.obtener_todos();
 		return list;
 	}
+
 	public static boolean actualizar(ProveedoresVO proveedor) {
 		result = edao.actualizar(proveedor);
 		return result;
@@ -39,6 +40,7 @@ public class ProveedoresBO {
 	public static ProveedoresVO obteneruno(String parametro, String termino) {
 		ProveedoresVO proveedor = edao.obteneruno(parametro, termino);
 		return proveedor;
+
 	}
 	public static boolean eliminar(long cedula) {
 		result = edao.eliminar(cedula);
@@ -46,7 +48,9 @@ public class ProveedoresBO {
 		
 	}
 	public static List<ProveedoresVO> obtenerporparametro(String parametro, String termino){
+
 		List<ProveedoresVO> proveedores = edao.obtenerporparametro(parametro, termino);
 		return proveedores;
+
 	}
 }
