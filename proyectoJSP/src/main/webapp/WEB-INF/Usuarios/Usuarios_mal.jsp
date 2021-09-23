@@ -15,7 +15,7 @@ color:black;
 </style>
 </head>
 <body>
-<jsp:include page = "Menu.jsp"></jsp:include>
+<jsp:include page = "/WEB-INF/login/Menu.jsp"></jsp:include>
 <form action="Usuario_agregar.jsp">
 <button type="submit" class="btn btn-primary">Agregar Usuario</button>
 <div id = "mensaje">
