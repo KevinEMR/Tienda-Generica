@@ -14,37 +14,41 @@
     <link href="bootstrap-5.1.0-dist\css\bootstrap-reboot.rtl.css" rel="stylesheet" type="text/css"/>
     <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.css" rel="stylesheet" type="text/css"/>
     <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.rtl.css" rel="stylesheet" type="text/css"/>
-<title>Agregar Usuario</title>
+<title>Editar Usuario</title>
+<style type="text/css">
+#esconder{
+visibility:hidden;
+}
+</style>
 </head>
 <body background="Imagenes\fondo.png">
-<form id = "U_editar" action = "Usuario_agregar.jsp">
-		<div>
-		<div id = "mensaje">
-        	Error al crear usuario
+<% 
+UsuarioVO usuario = UsuarioBO.obteneruno("cedula_usuario", request.getParameter("cedula"));
+%>
+<div id = "mensaje">
+        	Error al editar usuario
         	</div>
-            <div class="mb-3">
-            <label for="Usuario" class="form-label">Cedula</label>
-            <input type="text" class="form-control" name="cedula" >
-            </div>
+<form id = "U_editar" action = "Usuario_editar.jsp?cedula=<%= request.getParameter("cedula")%>">
+		<div>
             <div class="mb-3">
             <label for="Usuario" class="form-label">Correo</label>
-            <input type="text" class="form-control" name="correo" >
+            <input type="text" class="form-control" name="correo" value = "<%= usuario.getCorreo() %>" >
             </div>
             <div class="mb-3">
             <label for="Usuario" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="nombre">
+            <input type="text" class="form-control" name="nombre" value = "<%= usuario.getNombre() %>">
             </div>
             <div class="mb-3">
             <label for="Password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="contrasena">
+            <input type="password" class="form-control" name="contrasena" value = "<%= usuario.getContraseña() %>">
             </div>
             <div class="mb-3">
             <label for="Usuario" class="form-label">Usuario</label>
-            <input type="text" class="form-control" name="usuario" >
+            <input type="text" class="form-control" name="usuario" value = "<%= usuario.getUsuario() %>">
             </div>
-    <div class="mb-3" id = "siono">
-            <label for="Usuario" class="form-label">Comprobar</label>
-            <input type="text" class="form-control" name="comprobar" value="si" >
+            <div class="mb-3" id = "esconder">
+            <label for="Usuario" class="form-label">Cedula</label>
+            <input type="text" class="form-control" name="cedula" value= "<%= request.getParameter("cedula") %>">
             </div>
             <div class="mb-3 form-check">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
@@ -54,30 +58,23 @@
     </form>
     <%
     try{
-    if(request.getParameter("comprobar")!=null){
-    	System.out.println("entro 1");
-    if(request.getParameter("cedula")!=null && request.getParameter("correo")!=null && request.getParameter("nombre")!=null && request.getParameter("contrasena")!=null && request.getParameter("usuario")!=null){
-    	System.out.println("entro 2");
-    	long cedula = Long.parseLong((request.getParameter("cedula")));
+    if(request.getParameter("correo")!=null || request.getParameter("nombre")!=null || request.getParameter("contrasena")!=null || request.getParameter("usuario")!=null){
 		String correo = request.getParameter("correo");
 		String nombre = request.getParameter("nombre");
 		String contraseña = request.getParameter("contrasena");
-		String usuario = request.getParameter("usuario");
-		UsuarioVO Usuario = new UsuarioVO(cedula,correo,nombre,contraseña,usuario);
-		boolean resultado = UsuarioBO.isertarestudiante(Usuario);
+		String Usuario = request.getParameter("usuario");
+		long cedula = Long.parseLong((request.getParameter("cedula")));
+		UsuarioVO suario = new UsuarioVO(cedula,correo,nombre,contraseña,Usuario);
+		boolean resultado = UsuarioBO.actualizar(suario);
 		if(!resultado){
-			response.sendRedirect("Usuario_agregar_mal.jsp");
+			response.sendRedirect("Usuario_editar_mal.jsp");
 		}
 		else{
 			response.sendRedirect("Usuarios.jsp");
 		}
     }
-    else{
-    	response.sendRedirect("Usuario_agregar_mal.jsp");
-    }
-    	}
     }catch(Exception e){
-    	response.sendRedirect("Usuario_agregar_mal.jsp");
+    	response.sendRedirect("Usuario_editar_mal.jsp");
     }
     %>
 </body>

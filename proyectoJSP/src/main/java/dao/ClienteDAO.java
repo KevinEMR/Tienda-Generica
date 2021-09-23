@@ -10,39 +10,17 @@ import java.util.List;
 import conexionmysql.Conexion;
 import modelo.UsuarioVO;
 
-public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
+public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
     Connection cn = conectar();
     Statement sm = null;
     ResultSet rs = null;
     private static List<UsuarioVO> list;
-
-	@Override
-	public boolean usuario_existe(String Usuario, String Password) {
-        try {
-            sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios WHERE usuario = '" + Usuario + "' AND password = '" + Password + "';");
-            
-            while (rs.next()) {
-                return true;
-            }
-            
-        } catch (SQLException e) {
-            System.out.println("ERROR: " + e);
-        } finally {
-            try {
-                sm.close();
-            } catch (SQLException e) {
-                System.out.println("ERROR: " + e);
-            }
-        }
-        return false;
-	}
-
+	
 	@Override
 	public List<UsuarioVO> obtener_todos() {
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios;");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes;");
             list = new ArrayList<>();
             
             while (rs.next()) {
@@ -72,7 +50,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("UPDATE bd_tienda_generica.usuarios SET usuario = '" + usuario.getUsuario() + "',email_usuario = '"
+            sm.executeUpdate("UPDATE bd_tienda_generica.clientes SET usuario = '" + usuario.getUsuario() + "',email_usuario = '"
                     + usuario.getCorreo() + "',nombre_usuario = '" + usuario.getNombre() + "',password = '"
                     + usuario.getContraseña() + "' WHERE cedula_usuario = '" + usuario.getCedula() + "';");
         } catch (SQLException e) {
@@ -94,7 +72,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
         try {
             sm = cn.createStatement();
             sm.executeUpdate(
-                    "INSERT INTO bd_tienda_generica.usuarios (cedula_usuario,email_usuario,nombre_usuario,password,usuario)\r\n VALUES ('"
+                    "INSERT INTO bd_tienda_generica.clientes (cedula_usuario,email_usuario,nombre_usuario,password,usuario)\r\n VALUES ('"
                     + usuario.getCedula() + "','" + usuario.getCorreo() + "','"
                     + usuario.getNombre() + "','" + usuario.getContraseña() + "','"
                     + usuario.getUsuario() + "');");
@@ -115,7 +93,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 	public UsuarioVO obteneruno(String parametro, String termino) {
 		 try {
 	            sm = cn.createStatement();
-	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios WHERE " + parametro + " = '" + termino + "';");
+	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes WHERE " + parametro + " = '" + termino + "';");
 
 	            while (rs.next()) {
 	                Long cedula = rs.getLong(1);
@@ -143,7 +121,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("DELETE FROM bd_tienda_generica.usuarios\r\nWHERE cedula_usuario = '" + cedula + "';");
+            sm.executeUpdate("DELETE FROM bd_tienda_generica.clientes\r\nWHERE cedula_usuario = '" + cedula + "';");
         } catch (SQLException e) {
             System.out.println("ERROR: " + e);
             resultado = false;
@@ -164,7 +142,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
         boolean nodatos = true;
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios WHERE " + parametro + " = '" + termino + "';");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes WHERE " + parametro + " = '" + termino + "';");
 
             while (rs.next()) {
                 long cedula = rs.getLong(1);

@@ -3,22 +3,17 @@ package controlador;
 import java.sql.SQLException;
 import java.util.List;
 
-import dao.InterfaceUsarioDAO;
-import dao.UsuarioDAO;
+import dao.ClienteDAO;
+import dao.InterfaceClienteDAO;
 import modelo.UsuarioVO;
 
-public class UsuarioBO {
-	private static InterfaceUsarioDAO edao;
+public class ClienteBO {
+	private static InterfaceClienteDAO edao;
 	private static boolean result;
 	private static int resultado;
 	private static List<UsuarioVO> list;
-	public UsuarioBO() throws SQLException {
-		edao = new UsuarioDAO();
-	}
-
-	public static boolean usuario_existe(String Usuario, String Password) {
-		result = edao.usuario_existe(Usuario, Password);
-		return result;
+	public ClienteBO() throws SQLException {
+		edao = new ClienteDAO();
 	}
 
 	public static int sumar(int n1, int n2) {

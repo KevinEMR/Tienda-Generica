@@ -4,9 +4,8 @@ import java.util.List;
 
 import modelo.UsuarioVO;
 
-public interface InterfaceDAO {
+public interface InterfaceClienteDAO {
 	
-	public boolean usuario_existe(String Usuario,String Password);
 	public List<UsuarioVO> obtener_todos();
 	public boolean actualizar(UsuarioVO usuario);
 	public boolean isertarestudiante(UsuarioVO usuario);
