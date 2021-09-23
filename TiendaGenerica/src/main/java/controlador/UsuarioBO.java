@@ -3,10 +3,13 @@ package controlador;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RestController;
+
 import dao.InterfaceUsarioDAO;
 import dao.UsuarioDAO;
 import modelo.UsuarioVO;
 
+@RestController
 public class UsuarioBO {
 	private static InterfaceUsarioDAO edao;
 	private static boolean result;
@@ -15,7 +18,7 @@ public class UsuarioBO {
 	public UsuarioBO() throws SQLException {
 		edao = new UsuarioDAO();
 	}
-
+	
 	public static boolean usuario_existe(String Usuario, String Password) {
 		result = edao.usuario_existe(Usuario, Password);
 		return result;
