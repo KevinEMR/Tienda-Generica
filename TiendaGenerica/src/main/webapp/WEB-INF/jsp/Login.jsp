@@ -15,7 +15,7 @@
     <title>Login</title>
 </head>
 <body background="Imagenes\fondo.png">
-    <form action="registro.jsp">
+    <form action="/" method = post>
         <div id="login">
             <div class="mb-3">
             <label for="Usuario" class="form-label">Usuario</label>

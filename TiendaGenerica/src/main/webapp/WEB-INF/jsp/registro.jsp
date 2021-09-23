@@ -13,9 +13,9 @@
 <% UsuarioBO usuario = new UsuarioBO();%>
 <%boolean result = UsuarioBO.usuario_existe(Usuario, Password);%>
 <%if(result){
-	response.sendRedirect("Usuarios.jsp");
+	response.sendRedirect("/Usuarios");
 } else{
-	response.sendRedirect("Loginmal.jsp");
+	response.sendRedirect("/Loginmal");
 }%>
 </body>
 </html>
