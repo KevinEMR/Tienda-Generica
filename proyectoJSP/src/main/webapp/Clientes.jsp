@@ -74,8 +74,8 @@ border-bottom: 1px solid white
       <th scope="row"><%= list.get(i).getCedula()%></th>
       <td><%= list.get(i).getCorreo()%></td>
       <td><%= list.get(i).getNombre()%></td>
-      <td><%= list.get(i).getContraseña()%></td>
-      <td><%= list.get(i).getUsuario()%></td>
+      <td><%= list.get(i).getTelefono()%></td>
+      <td><%= list.get(i).getDireccion()%></td>
       <td><a href = "Cliente_editar.jsp?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
       <td><a href = "Cliente_eliminar.jsp?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
     </tr>
@@ -91,8 +91,8 @@ border-bottom: 1px solid white
     <th scope="row"><%= list.get(i).getCedula()%></th>
     <td><%= list.get(i).getCorreo()%></td>
     <td><%= list.get(i).getNombre()%></td>
-    <td><%= list.get(i).getContraseña()%></td>
-    <td><%= list.get(i).getUsuario()%></td>
+   <td><%= list.get(i).getTelefono()%></td>
+   <td><%= list.get(i).getDireccion()%></td>
     <td><a href = "Cliente_editar.jsp?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
     <td><a href = "Cliente_eliminar.jsp?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
   </tr>
@@ -108,8 +108,8 @@ else if(request.getParameter("list").equals("2")){
    <th scope="row"><%= list.get(i).getCedula()%></th>
    <td><%= list.get(i).getCorreo()%></td>
    <td><%= list.get(i).getNombre()%></td>
-   <td><%= list.get(i).getContraseña()%></td>
-   <td><%= list.get(i).getUsuario()%></td>
+   <td><%= list.get(i).getTelefono()%></td>
+   <td><%= list.get(i).getDireccion()%></td>
    <td><a href = "Cliente_editar.jsp?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
    <td><a href = "Cliente_eliminar.jsp?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
  </tr>
@@ -125,8 +125,8 @@ else if(request.getParameter("list").equals("3")){
   <th scope="row"><%= list.get(i).getCedula()%></th>
   <td><%= list.get(i).getCorreo()%></td>
   <td><%= list.get(i).getNombre()%></td>
-  <td><%= list.get(i).getContraseña()%></td>
-  <td><%= list.get(i).getUsuario()%></td>
+  <td><%= list.get(i).getTelefono()%></td>
+  <td><%= list.get(i).getDireccion()%></td>
   <td><a href = "Cliente_editar.jsp?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
   <td><a href = "Cliente_eliminar.jsp?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
 </tr>
@@ -142,8 +142,8 @@ else if(request.getParameter("list").equals("4")){
   <th scope="row"><%= list.get(i).getCedula()%></th>
   <td><%= list.get(i).getCorreo()%></td>
   <td><%= list.get(i).getNombre()%></td>
-  <td><%= list.get(i).getContraseña()%></td>
-  <td><%= list.get(i).getUsuario()%></td>
+  <td><%= list.get(i).getTelefono()%></td>
+  <td><%= list.get(i).getDireccion()%></td>
   <td><a href = "Cliente_editar.jsp?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
   <td><a href = "Cliente_eliminar.jsp?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
 </tr>
@@ -159,8 +159,8 @@ else if(request.getParameter("list").equals("5")){
   <th scope="row"><%= list.get(i).getCedula()%></th>
   <td><%= list.get(i).getCorreo()%></td>
   <td><%= list.get(i).getNombre()%></td>
-  <td><%= list.get(i).getContraseña()%></td>
-  <td><%= list.get(i).getUsuario()%></td>
+  <td><%= list.get(i).getTelefono()%></td>
+  <td><%= list.get(i).getDireccion()%></td>
   <td><a href = "Cliente_editar.jsp?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
   <td><a href = "Cliente_eliminar.jsp?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
 </tr>
