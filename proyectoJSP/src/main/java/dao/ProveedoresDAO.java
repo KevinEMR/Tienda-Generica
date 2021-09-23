@@ -11,7 +11,7 @@ import conexionmysql.Conexion;
 import modelo.ClienteVO;
 
 
-public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
+public class ProveedoresDAO extends Conexion implements InterfaceClienteDAO {
     Connection cn = conectar();
     Statement sm = null;
     ResultSet rs = null;

@@ -3,17 +3,15 @@ package controlador;
 import java.sql.SQLException;
 import java.util.List;
 
-import dao.ClienteDAO;
-import dao.InterfaceClienteDAO;
-import modelo.ClienteVO;
 
 
-public class ClienteBO {
-	private static InterfaceClienteDAO edao;
+
+public class ProveedoresBO {
+	private static InterfaceProveedoresDAO edao;
 	private static boolean result;
 	private static int resultado;
 	private static List<ClienteVO> list;
-	public ClienteBO() throws SQLException {
+	public ProveedoresBO() throws SQLException {
 		edao = new ClienteDAO();
 	}
 
