@@ -1,16 +1,16 @@
 package modelo;
 
 public class ProveedoresVO {
-	private String Direccion,Telefono,Nombre,Correo;
-	private long Cedula;
+	private String Direccion,Telefono,Nombre,Ciudad;
+	private long Nit;
 	
 	public ProveedoresVO(){
 	}
 	
-	public ProveedoresVO(Long cedula , String correo, String nombre, String direccion, String telefono) {
-		this.Cedula = cedula;
+	public ProveedoresVO(Long nit , String ciudad, String nombre, String direccion, String telefono) {
+		this.Nit = nit;
 		this.Nombre = nombre;
-		this.Correo = correo;
+		this.Ciudad = ciudad;
 		this.Direccion = direccion;
 		this.Telefono = telefono;
 	}
@@ -43,20 +43,20 @@ public class ProveedoresVO {
 		Nombre = nombre;
 	}
 
-	public String getCorreo() {
-		return Correo;
+	public String getCiudad() {
+		return Ciudad;
 	}
 
-	public void setCorreo(String correo) {
-		Correo = correo;
+	public void setCiudad(String ciudad) {
+		Ciudad = ciudad;
 	}
 
-	public long getCedula() {
-		return Cedula;
+	public long getNit() {
+		return Nit;
 	}
 
-	public void setCedula(long cedula) {
-		Cedula = cedula;
+	public void setNit(long nit) {
+		Nit = nit;
 	}
 
 	@Override
