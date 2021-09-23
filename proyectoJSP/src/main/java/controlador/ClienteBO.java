@@ -6,7 +6,7 @@ import java.util.List;
 import dao.ClienteDAO;
 import dao.InterfaceClienteDAO;
 import modelo.ClienteVO;
-import modelo.UsuarioVO;
+
 
 public class ClienteBO {
 	private static InterfaceClienteDAO edao;
@@ -44,7 +44,7 @@ public class ClienteBO {
 		
 	}
 	public static List<ClienteVO> obtenerporparametro(String parametro, String termino){
-		List<ClienteVO> cliente = edao.obtenerporparametro(parametro, termino);
+		List<ClienteVO> clientes = edao.obtenerporparametro(parametro, termino);
 		return clientes;
 	}
 }
