@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import conexionmysql.Conexion;
 import modelo.UsuarioVO;
 
@@ -27,12 +29,12 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
             }
             
         } catch (SQLException e) {
-            System.out.println("ERROR: " + e);
+        	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
         } finally {
             try {
                 sm.close();
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e);
+            	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             }
         }
         return false;
@@ -56,12 +58,12 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
             }
             
         } catch (SQLException e) {
-            System.out.println("ERROR: " + e);
+        	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
         } finally {
             try {
                 sm.close();
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e);
+            	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             }
         }
 		return list;
@@ -76,13 +78,13 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
                     + usuario.getCorreo() + "',nombre_usuario = '" + usuario.getNombre() + "',password = '"
                     + usuario.getContraseña() + "' WHERE cedula_usuario = '" + usuario.getCedula() + "';");
         } catch (SQLException e) {
-            System.out.println("ERROR: " + e);
+        	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             resultado = false;
         } finally {
             try {
                 sm.close();
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e);
+            	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             }
         }
         return resultado;
@@ -99,13 +101,13 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
                     + usuario.getNombre() + "','" + usuario.getContraseña() + "','"
                     + usuario.getUsuario() + "');");
         } catch (SQLException e) {
-            System.out.println("ERROR: " + e);
+        	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             resultado = false;
         } finally {
             try {
                 sm.close();
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e);
+            	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             }
         }
         return resultado;
@@ -127,12 +129,12 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 	                return estu;
 	            }
 	        } catch (SQLException e) {
-	            System.out.println("ERROR: " + e);
+	        	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
 	        } finally {
 	            try {
 	                sm.close();
 	            } catch (SQLException e) {
-	                System.out.println("ERROR: " + e);
+	            	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
 	            }
 	        }
 	        return null;
@@ -145,13 +147,13 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
             sm = cn.createStatement();
             sm.executeUpdate("DELETE FROM bd_tienda_generica.usuarios\r\nWHERE cedula_usuario = '" + cedula + "';");
         } catch (SQLException e) {
-            System.out.println("ERROR: " + e);
+        	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             resultado = false;
         } finally {
             try {
                 sm.close();
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e);
+            	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             }
         }
         return resultado;
@@ -177,7 +179,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
                 nodatos = false;
             }
         } catch (SQLException e) {
-            System.out.println("ERROR: " + e);
+        	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
         } finally {
             try {
                 sm.close();
@@ -185,7 +187,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
                     usuarios = null;
                 }
             } catch (SQLException e) {
-                System.out.println("ERROR: " + e);
+            	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             }
         }
         return usuarios;
