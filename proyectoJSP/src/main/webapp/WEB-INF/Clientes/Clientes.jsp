@@ -24,7 +24,7 @@ border-bottom: 1px solid white
 </style>
 </head>
 <body>
-<jsp:include page = "Menu.jsp"></jsp:include>
+<jsp:include page = "/WEB-INF/login/Menu.jsp"></jsp:include>
 <form action="Cliente_agregar.jsp" id ="agregar_cliente">
 <button type="submit" class="btn btn-outline-light">Agregar Cliente</button>
 </form>
