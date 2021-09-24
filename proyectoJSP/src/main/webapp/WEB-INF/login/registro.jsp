@@ -8,6 +8,8 @@
 <title>Registro</title>
 </head>
 <body>
+<jsp:include page = "/WEB-INF/Usuarios/Usuarios.jsp"></jsp:include>
+<jsp:include page = "/WEB-INF/login/Loginmal.jsp"></jsp:include>
 <%String Usuario = request.getParameter("usuario");%>
 <%String Password = request.getParameter("password");%>
 <% UsuarioBO usuario = new UsuarioBO();%>
