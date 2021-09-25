@@ -9,7 +9,7 @@
 <meta charset="ISO-8859-1">
 <title>Clientes</title>
 <style type="text/css">
-#Cliente{
+#Clien{
 color:black;
 }
 #consultar_cliente{
