@@ -26,12 +26,13 @@
 	<form action="/Productos" method = post>
 		<div id="login">
 			<div class="mb-3">
-				<label for="Nombre del archivo" class="form-label">Nombre de archivo</label> <input
-					type="text" class="form-control" name="Nombre de archivo">
+				<label for="archivo" class="form-label">Cargar Archivo</label> 
 			</div>
 			
 			<div class="mb-3 form-check">
-				<button type="file" class="btn btn-primary">Examinar</button>
+				<input type="file" class="btn btn-primary"
+				accept=".csv">
+				
 			</div>
 			<div class="mb-3 form-check">
 				<button type="submit" class="btn btn-primary">Cargar</button>
