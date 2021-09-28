@@ -12,7 +12,7 @@
 #Provee{
 color:black;
 }
-#consultar_proveeedor{
+#consultar_proveedor{
 background-color:#212529;
 padding:15px;
 }
