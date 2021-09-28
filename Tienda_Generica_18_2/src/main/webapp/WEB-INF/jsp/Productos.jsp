@@ -23,14 +23,14 @@
 <title>Productos</title>
 </head>
 <body background="Imagenes\fondo.png">
-	<form action="/" method = post>
-		<div id="Productos">
+	<form action="/Productos" method = post>
+		<div id="login">
 			<div class="mb-3">
 				<label for="Nombre del archivo" class="form-label">Nombre de archivo</label> <input
 					type="text" class="form-control" name="Nombre de archivo">
 			</div>
 			
-			<div class="mb-3">
+			<div class="mb-3 form-check">
 				<button type="file" class="btn btn-primary">Examinar</button>
 			</div>
 			<div class="mb-3 form-check">
