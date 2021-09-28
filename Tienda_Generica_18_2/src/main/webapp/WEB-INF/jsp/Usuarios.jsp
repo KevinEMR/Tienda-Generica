@@ -28,7 +28,7 @@ border-bottom: 1px solid white
 <form action="/Agregar_usuario" id ="agregar_usuario" method = post>
 <button type="submit" class="btn btn-outline-light">Agregar Usuario</button>
 </form>
-<form id = "consultar_usuario" action="/Usuarios">
+<form id = "consultar_usuario" action="/Usuarios" method = post>
 <table>
 <tr>
 <th><select class="form-select" name = "list" aria-label="Default select example">

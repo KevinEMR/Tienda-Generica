@@ -7,7 +7,7 @@ public class ClienteVO {
 	public ClienteVO(){
 	}
 	
-	public ClienteVO(Long cedula , String correo, String nombre, String direccion, String telefono) {
+	public ClienteVO(Long cedula , String direccion, String correo, String nombre, String telefono) {
 		this.Cedula = cedula;
 		this.Nombre = nombre;
 		this.Correo = correo;

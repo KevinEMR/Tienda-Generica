@@ -50,7 +50,7 @@ display:none;
             </div>
             <div class="mb-3 form-check">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
-                <input type="button" onclick="history.back()" class="btn btn-primary" name="Atrás" value="Atrás">
+                <input type="button" onclick="location.href='/Usuarios';" class="btn btn-primary" name="Atrás" value="Atrás">
             </div>
         </div>
     </form>

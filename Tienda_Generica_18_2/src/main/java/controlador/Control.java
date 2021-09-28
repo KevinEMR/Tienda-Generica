@@ -42,7 +42,7 @@ public class Control {
 	
 	@RequestMapping("/Editar_usuario_error")
 	public static String editar_usuario_error() {
-		System.out.println("Entro al metodo");
+		System.out.println("Entro al metodo editar error");
 		return "Usuario_editar_error";
 	}
 	
@@ -62,6 +62,42 @@ public class Control {
 	public static String clientes() {
 		System.out.println("Entro al metodo");
 		return "Clientes";
+	}
+	
+	@RequestMapping("/Agregar_cliente")
+	public static String agregar_cliente() {
+		System.out.println("Entro al metodo");
+		return "Cliente_agregar";
+	}
+	
+	@RequestMapping("/Agregar_cliente_error")
+	public static String agregar_cliente_error() {
+		System.out.println("Entro al metodo");
+		return "Cliente_agregar_error";
+	}
+	
+	@RequestMapping("/Editar_cliente")
+	public static String editar_cliente() {
+		System.out.println("Entro al metodo");
+		return "Cliente_editar";
+	}
+	
+	@RequestMapping("/Editar_cliente_error")
+	public static String editar_cliente_error() {
+		System.out.println("Entro al metodo editar error");
+		return "Cliente_editar_error";
+	}
+	
+	@RequestMapping("/Eliminar_cliente")
+	public static String eliminar_cliente() {
+		System.out.println("Entro al metodo");
+		return "Cliente_eliminar";
+	}
+	
+	@RequestMapping("/Eliminar_cliente_error")
+	public static String eliminar_cliente_error() {
+		System.out.println("Entro al metodo");
+		return "Cliente_eliminar_error";
 	}
 	
 	@RequestMapping("/Proveedores")

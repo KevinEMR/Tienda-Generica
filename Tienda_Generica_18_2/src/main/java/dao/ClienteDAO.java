@@ -51,9 +51,9 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("UPDATE bd_tienda_generica.clientes SET cliente = '" + cliente.getDireccion() + "',email_cliente = '"
+            sm.executeUpdate("UPDATE bd_tienda_generica.clientes SET direccion_cliente = '" + cliente.getDireccion() + "',email_cliente = '"
                     + cliente.getCorreo() + "',nombre_cliente = '" + cliente.getNombre() + "',telefono_cliente = '"
-                    + cliente.getTelefono() + "' WHERE Cedula_cliente = '" + cliente.getCedula() + "';");
+                    + cliente.getTelefono() + "' WHERE cedula_cliente = '" + cliente.getCedula() + "';");
         } catch (SQLException e) {
             System.out.println("ERROR: " + e);
             resultado = false;
@@ -73,7 +73,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
         try {
             sm = cn.createStatement();
             sm.executeUpdate(
-                    "INSERT INTO bd_tienda_generica.clientes (Cedula_cliente,direccion_cliente,email_cliente,nombre_cliente,telefono_cliente)\r\n VALUES ('"
+                    "INSERT INTO bd_tienda_generica.clientes (cedula_cliente,direccion_cliente,email_cliente,nombre_cliente,telefono_cliente)\r\n VALUES ('"
                     + cliente.getCedula() + "','" + cliente.getDireccion() + "','"
                     + cliente.getCorreo() + "','" + cliente.getNombre() + "','"
                     + cliente.getTelefono() + "');");

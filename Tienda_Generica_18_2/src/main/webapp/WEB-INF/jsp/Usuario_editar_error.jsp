@@ -25,10 +25,10 @@ visibility:hidden;
 <% 
 UsuarioVO usuario = UsuarioBO.obteneruno("cedula_usuario", request.getParameter("cedula"));
 %>
+<form id = "U_editar" action = "/Editar_usuario_error?cedula=<%= request.getParameter("cedula")%>">
 <div id = "mensaje">
         	Error al editar usuario
         	</div>
-<form id = "U_editar" action = "/Editar_usuario_error?cedula=<%= request.getParameter("cedula")%>">
 		<div>
             <div class="mb-3">
             <label for="Usuario" class="form-label">Correo</label>
@@ -52,30 +52,36 @@ UsuarioVO usuario = UsuarioBO.obteneruno("cedula_usuario", request.getParameter(
             </div>
             <div class="mb-3 form-check">
                 <button type="submit" class="btn btn-primary">Aceptar</button>
-                <input type="button" onclick="history.back()" class="btn btn-primary" name="Atrás" value="Atrás">
+                <input type="button" onclick="location.href='/Usuarios';" class="btn btn-primary" name="Atrás" value="Atrás">
             </div>
         </div>
     </form>
-    <%
-    try{
-    if(request.getParameter("correo")!=null && request.getParameter("nombre")!=null && request.getParameter("contrasena")!=null && request.getParameter("usuario")!=null){
-		String correo = request.getParameter("correo");
-		String nombre = request.getParameter("nombre");
-		String contraseña = request.getParameter("contrasena");
-		String Usuario = request.getParameter("usuario");
-		long cedula = Long.parseLong((request.getParameter("cedula")));
-		UsuarioVO suario = new UsuarioVO(cedula,correo,nombre,contraseña,Usuario);
-		boolean resultado = UsuarioBO.actualizar(suario);
-		if(!resultado){
-			response.sendRedirect("/Editar_usuario_error");
-		}
-		else{
-			response.sendRedirect("/Usuarios");
-		}
-    }
-    }catch(Exception e){
-    	response.sendRedirect("/Editar_usuario_error");
-    }
-    %>
-</body>
-</html>
+  	<%
+	boolean resultado;
+	try {
+		if (request.getParameter("correo") != null && request.getParameter("nombre") != null
+		&& request.getParameter("contrasena") != null && request.getParameter("usuario") != null) {
+			System.out.println(request.getParameter("correo"));
+			if (request.getParameter("correo").equals("") || request.getParameter("nombre").equals("") || request.getParameter("contrasena").equals("") || request.getParameter("usuario").equals("")) {
+				resultado = false;
+					} else {
+				String correo = request.getParameter("correo");
+				String nombre = request.getParameter("nombre");
+				String contraseña = request.getParameter("contrasena");
+				String Usuario = request.getParameter("usuario");
+				long cedula = Long.parseLong((request.getParameter("cedula")));
+				UsuarioVO suario = new UsuarioVO(cedula, correo, nombre, contraseña, Usuario);
+				resultado = UsuarioBO.actualizar(suario);
+					}
+					if (!resultado) {
+				response.sendRedirect("/Editar_usuario_error?cedula="+ request.getParameter("cedula"));
+					} else {
+				response.sendRedirect("/Usuarios");
+					}
+				}
+			} catch (Exception e) {
+				response.sendRedirect("/Editar_usuario_error?cedula="+ request.getParameter("cedula"));
+			}
+			%>
+		</body>
+		</html>
