@@ -117,4 +117,17 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Proveedor_agregar_error";
 	}
+	
+	@RequestMapping("/Editar_proveedor")
+	public static String editar_proveedor() {
+		System.out.println("Entro al metodo");
+		return "Proveedor_editar";
+	}
+	
+	@RequestMapping("/Editar_proveedor_error")
+	public static String editar_proveedor_error() {
+		System.out.println("Entro al metodo editar error");
+		return "Proveedor_editar_error";
+	}
 }
+
