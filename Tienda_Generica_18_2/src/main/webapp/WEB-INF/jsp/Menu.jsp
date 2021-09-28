@@ -28,7 +28,7 @@
           <a class="nav-link" id = "Provee"  href="/Proveedores">Proveedores</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  id = "Produc" href="#">Productos</a>
+          <a class="nav-link"  id = "Produc" href="/Productos">Productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id = "Vent"  href="#">Ventas</a>

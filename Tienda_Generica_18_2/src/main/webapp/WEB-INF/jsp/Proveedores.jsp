@@ -54,8 +54,8 @@ border-bottom: 1px solid white
     <tr>
       <th scope="col">Nit</th>
       <th scope="col">Ciudad</th>
-      <th scope="col">Direccion</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Dirección</th>
       <th scope="col">Telefono</th>
       <th scope="col" colspan = "2">Acciones</th>
     </tr>
