@@ -38,7 +38,7 @@ display:none;
             </div>
             <div class="mb-3">
             <label for="Proveedor" class="form-label">Nombre</label>
-            <input type="password" class="form-control" name="nombre">
+            <input type="text" class="form-control" name="nombre">
             </div>
             <div class="mb-3">
             <label for="Proveedor" class="form-label">Telefono</label>
