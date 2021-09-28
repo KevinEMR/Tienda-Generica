@@ -105,4 +105,16 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Proveedores";
 	}
+	
+	@RequestMapping("/Agregar_proveedor")
+	public static String agregar_proveedor() {
+		System.out.println("Entro al metodo");
+		return "Agregar_proveedor";
+	}
+	
+	@RequestMapping("/Agregar_proveedor_error")
+	public static String agregar_proveedor_error() {
+		System.out.println("Entro al metodo");
+		return "Agregar_proveedor_error";
+	}
 }
