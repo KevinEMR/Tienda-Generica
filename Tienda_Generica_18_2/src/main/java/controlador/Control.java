@@ -109,12 +109,12 @@ public class Control {
 	@RequestMapping("/Agregar_proveedor")
 	public static String agregar_proveedor() {
 		System.out.println("Entro al metodo");
-		return "Agregar_proveedor";
+		return "Proveedor_agregar";
 	}
 	
 	@RequestMapping("/Agregar_proveedor_error")
 	public static String agregar_proveedor_error() {
 		System.out.println("Entro al metodo");
-		return "Agregar_proveedor_error";
+		return "Proveedor_agregar_error";
 	}
 }
