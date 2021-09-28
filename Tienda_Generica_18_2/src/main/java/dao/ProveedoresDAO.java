@@ -52,9 +52,9 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("UPDATE bd_tienda_generica.proveedor SET proveedor = '" + proveedor.getDireccion() + "',ciudad_proveedor = '"
-                    + proveedor.getCiudad() + "',nombre_cliente = '" + proveedor.getNombre() + "',telefono_proveedor = '"
-                    + proveedor.getTelefono() + "' WHERE nit_proveedor = '" + proveedor.getNit() + "';");
+            sm.executeUpdate("UPDATE bd_tienda_generica.proveedores SET direccion_proveedor = '" + proveedor.getDireccion() + "',ciudad_proveedor = '"
+                    + proveedor.getCiudad() + "',nombre_proveedor = '" + proveedor.getNombre() + "',telefono_proveedor = '"
+                    + proveedor.getTelefono() + "' WHERE nitproveedor = '" + proveedor.getNit() + "';");
         } catch (SQLException e) {
             System.out.println("ERROR: " + e);
             resultado = false;
@@ -75,7 +75,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
         try {
             sm = cn.createStatement();
             sm.executeUpdate(
-                    "INSERT INTO bd_tienda_generica.proveedores (nit_proveedor, ciudad_proveedor, direccion_proveedor, nombre_proveedor,telefono_proveedor)\r\n VALUES ('"
+                    "INSERT INTO bd_tienda_generica.proveedores (nitproveedor, ciudad_proveedor, direccion_proveedor, nombre_proveedor,telefono_proveedor)\r\n VALUES ('"
                     + proveedor.getNit() + "','" + proveedor.getCiudad() + "','"
                     + proveedor.getDireccion() + "','" + proveedor.getNombre() + "','"
                     + proveedor.getTelefono() + "');");

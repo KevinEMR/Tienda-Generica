@@ -1,40 +1,34 @@
 <%@page import="controlador.ProveedoresBO"%>
 <%@page import="modelo.ProveedoresVO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="bootstrap-5.1.0-dist\css\bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap.rtl.css" rel="stylesheet"
-	type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-grid.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-grid.rtl.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-reboot.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-reboot.rtl.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.rtl.css"
-	rel="stylesheet" type="text/css" />
-<title>Editar Proveedor</title>
+<link href="bootstrap-5.1.0-dist\css\bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-5.1.0-dist\css\bootstrap.rtl.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-5.1.0-dist\css\bootstrap-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-5.1.0-dist\css\bootstrap-grid.rtl.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-5.1.0-dist\css\bootstrap-reboot.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-5.1.0-dist\css\bootstrap-reboot.rtl.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.css" rel="stylesheet" type="text/css"/>
+    <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.rtl.css" rel="stylesheet" type="text/css"/>
+<title>Editar Usuario</title>
 <style type="text/css">
-#esconder {
-	visibility: hidden;
+#esconder{
+visibility:hidden;
 }
 </style>
 </head>
 <body background="Imagenes\fondo.png">
-	<%
-	ProveedoresVO usuario = ProveedoresBO.obteneruno("nitproveedor", request.getParameter("cedula"));
-	%>
-	<form id="U_editar"
-		action="/Editar_proveedor?nit=<%=request.getParameter("nit")%>">
+<% 
+ProveedoresVO usuario = ProveedoresBO.obteneruno("nitproveedor", request.getParameter("nit"));
+%>
+<form id = "U_editar" action = "/Editar_proveedor_error?cedula=<%= request.getParameter("nit")%>">
+<div id = "mensaje">
+        	Error al editar usuario
+        	</div>
 		<div>
 			<div class="mb-3">
 				<label for="Usuario" class="form-label">Ciudad</label> <input
@@ -86,13 +80,13 @@
 		resultado = ProveedoresBO.actualizar(suario);
 			}
 			if (!resultado) {
-		response.sendRedirect("/Editar_proveedores_error?nit="+ request.getParameter("nit"));
+		response.sendRedirect("/Editar_proveedor_error?nit="+ request.getParameter("nit"));
 			} else {
 		response.sendRedirect("/Proveedores");
 			}
 		}
 	} catch (Exception e) {
-		response.sendRedirect("/Editar_proveedores_error?nit="+ request.getParameter("nit"));
+		response.sendRedirect("/Editar_proveedor_error?nit="+ request.getParameter("nit"));
 	}
 	%>
 </body>
