@@ -105,7 +105,7 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Proveedores";
 	}
-	
+
 	@RequestMapping("/Agregar_proveedor")
 	public static String agregar_proveedor() {
 		System.out.println("Entro al metodo");
@@ -128,6 +128,10 @@ public class Control {
 	public static String editar_proveedor_error() {
 		System.out.println("Entro al metodo editar error");
 		return "Proveedor_editar_error";
+
+	@RequestMapping("/Productos")
+	public static String productos() {
+		return "Productos";
 	}
 }
 
