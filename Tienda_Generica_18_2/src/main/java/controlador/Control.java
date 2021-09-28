@@ -129,6 +129,19 @@ public class Control {
 		System.out.println("Entro al metodo editar error");
 		return "Proveedor_editar_error";
 	}
+	
+	@RequestMapping("/Eliminar_proveedor")
+	public static String eliminar_proveedor() {
+		System.out.println("Entro al metodo");
+		return "Proveedor_eliminar";
+	}
+	
+	@RequestMapping("/Eliminar_proveedor_error")
+	public static String eliminar_proveedor_error() {
+		System.out.println("Entro al metodo");
+		return "Proveedor_eliminar_error";
+	}
+	
 	@RequestMapping("/Productos")
 	public static String productos() {
 		return "Productos";

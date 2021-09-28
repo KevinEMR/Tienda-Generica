@@ -9,20 +9,29 @@
 <meta charset="ISO-8859-1">
 <title>Proveedores</title>
 <style type="text/css">
-#Usua{
+#Provee{
 color:black;
+}
+#consultar_proveedor{
+background-color:#212529;
+padding:15px;
+}
+#agregar_proveedor{
+background-color:#212529;
+padding:10px;
+border-bottom: 1px solid white
 }
 </style>
 </head>
 <body>
 <jsp:include page = "Menu.jsp"></jsp:include>
-<form action="/Agregar_proveedor">
+<form action="/Agregar_proveedor" id ="agregar_proveedor">
 <button type="submit" class="btn btn-primary">Agregar Proveedor</button>
 <div id = "mensaje">
         	Error al eliminar proveedor
         	</div>
 </form>
-<form id = "consultar_usuario" action="/Proveedores">
+<form id = "consultar_proveedor" action="/Proveedores">
 <table>
 <tr>
 <th><select class="form-select" name = "list" aria-label="Default select example">
@@ -30,8 +39,8 @@ color:black;
   <option value="1">Nit</option>
   <option value="2">Ciudad</option>
   <option value="3">Nombre</option>
-  <option value="4">Teléfono</option>
-  <option value="5">Dirección</option>
+  <option value="4">Dirección</option>
+  <option value="5">Teléfono</option>
 </select>
 </th>
 <th>
@@ -127,7 +136,7 @@ else if(request.getParameter("list").equals("3")){
 <%}}}
 else if(request.getParameter("list").equals("4")){
 	ProveedoresBO proveedor = new ProveedoresBO();
-	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("telefono_proveedor", request.getParameter("busqueda"));
+	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("direccion_proveedor", request.getParameter("busqueda"));
 	  if(list != null){
 		for(int i = 0;i<list.size();i++){ 
 			  
@@ -144,7 +153,7 @@ else if(request.getParameter("list").equals("4")){
 <%}}}
 else if(request.getParameter("list").equals("5")){
 	ProveedoresBO proveedor = new ProveedoresBO();
-	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("direccion_proveedor", request.getParameter("busqueda"));
+	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("telefono_proveedor", request.getParameter("busqueda"));
 	  if(list != null){
 		for(int i = 0;i<list.size();i++){ 
 			  

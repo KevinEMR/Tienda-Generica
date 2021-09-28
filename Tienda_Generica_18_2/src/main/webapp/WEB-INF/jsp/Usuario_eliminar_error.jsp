@@ -12,11 +12,20 @@
 #Usua{
 color:black;
 }
+#consultar_usuario{
+background-color:#212529;
+padding:15px;
+}
+#agregar_usuario{
+background-color:#212529;
+padding:10px;
+border-bottom: 1px solid white
+}
 </style>
 </head>
 <body>
 <jsp:include page = "Menu.jsp"></jsp:include>
-<form action="/Agregar_usuario">
+<form action="/Agregar_usuario" id="agregar_usuario">
 <button type="submit" class="btn btn-primary">Agregar Usuario</button>
 <div id = "mensaje">
         	Error al eliminar usuario

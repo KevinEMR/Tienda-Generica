@@ -124,7 +124,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("DELETE FROM bd_tienda_generica.proveedores\r\nWHERE nit_proveedores = '" + nit + "';");
+            sm.executeUpdate("DELETE FROM bd_tienda_generica.proveedores\r\nWHERE nitproveedor = '" + nit + "';");
         } catch (SQLException e) {
             System.out.println("ERROR: " + e);
             resultado = false;

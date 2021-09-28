@@ -12,17 +12,26 @@
 #Usua{
 color:black;
 }
+#consultar_cliente{
+background-color:#212529;
+padding:15px;
+}
+#agregar_cliente{
+background-color:#212529;
+padding:10px;
+border-bottom: 1px solid white
+}
 </style>
 </head>
 <body>
 <jsp:include page = "Menu.jsp"></jsp:include>
-<form action="/Agregar_cliente">
+<form action="/Agregar_cliente" id ="agregar_cliente">
 <button type="submit" class="btn btn-primary">Agregar Usuario</button>
 <div id = "mensaje">
         	Error al eliminar usuario
         	</div>
 </form>
-<form id = "consultar_usuario" action="/Clientes">
+<form id = "consultar_cliente" action="/Clientes">
 <table>
 <tr>
 <th><select class="form-select" name = "list" aria-label="Default select example">

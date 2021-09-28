@@ -33,11 +33,11 @@ border-bottom: 1px solid white
 <tr>
 <th><select class="form-select" name = "list" aria-label="Default select example">
   <option value = "0" >Todo</option>
-  <option value="1">nitproveedor</option>
-  <option value="2">ciudad_proveedor</option>
-  <option value="3">direccion_proveedor</option>
-  <option value="4">nombre_proveedor</option>
-  <option value="5">telefono_proveedor</option>
+  <option value="1">NIT</option>
+  <option value="2">Ciudad</option>
+  <option value="3">Nombre</option>
+  <option value="4">Dirección</option>
+  <option value="5">Teléfono</option>
 </select>
 </th>
 <th>
@@ -81,7 +81,7 @@ border-bottom: 1px solid white
     <%}}}
   else if(request.getParameter("list").equals("1")){
 	  ProveedoresBO usuario = new ProveedoresBO();
-	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("nit_proveedores", request.getParameter("busqueda"));
+	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("nitproveedor", request.getParameter("busqueda"));
 	  if(list != null){
 		for(int i = 0;i<list.size();i++){ 
 			  
@@ -98,7 +98,7 @@ border-bottom: 1px solid white
   <%}}}
 else if(request.getParameter("list").equals("2")){
 	ProveedoresBO usuario = new ProveedoresBO();
-	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("ciudad", request.getParameter("busqueda"));
+	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("ciudad_proveedor", request.getParameter("busqueda"));
 	  if(list != null){
 		for(int i = 0;i<list.size();i++){ 
 			  
@@ -132,7 +132,7 @@ else if(request.getParameter("list").equals("3")){
 <%}}}
 else if(request.getParameter("list").equals("4")){
 	ProveedoresBO usuario = new ProveedoresBO();
-	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("Direccion", request.getParameter("busqueda"));
+	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("direccion_proveedor", request.getParameter("busqueda"));
 	  if(list != null){
 		for(int i = 0;i<list.size();i++){ 
 			  
@@ -149,7 +149,7 @@ else if(request.getParameter("list").equals("4")){
 <%}}}
 else if(request.getParameter("list").equals("5")){
 	ProveedoresBO usuario = new ProveedoresBO();
-	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("usuario", request.getParameter("busqueda"));
+	  List<ProveedoresVO> list = ProveedoresBO.obtenerporparametro("telefono_proveedor", request.getParameter("busqueda"));
 	  if(list != null){
 		for(int i = 0;i<list.size();i++){ 
 			  
