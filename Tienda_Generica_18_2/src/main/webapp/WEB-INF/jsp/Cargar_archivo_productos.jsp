@@ -47,7 +47,6 @@
 
 			<div class="mb-3 form-check">
 				<input type="file" class="btn btn-primary" name="file" accept=.csv>
-
 			</div>
 			<div class="mb-3 form-check">
 				<button type="submit" class="btn btn-primary">Cargar</button>
