@@ -30,14 +30,14 @@
 </head>
 <body background="Imagenes\fondo.png">
 	<jsp:include page="Menu.jsp"></jsp:include>
-	<form action="/Productos" method=post>
+	<form  method=post action="uploadServlet" enctype="multipart/form-data" >
 		<div id="login">
 			<div class="mb-3">
 				<label for="archivo" class="form-label">Cargar Archivo</label>
 			</div>
 
 			<div class="mb-3 form-check">
-				<input type="file" class="btn btn-primary" accept=".csv">
+				<input type="file" name="cargar_csv" class="btn btn-primary" accept=".csv">
 
 			</div>
 			<div class="mb-3 form-check">
