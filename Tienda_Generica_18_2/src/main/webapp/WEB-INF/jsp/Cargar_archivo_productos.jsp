@@ -30,7 +30,7 @@
 </head>
 <body background="Imagenes\fondo.png">
 	<jsp:include page="Menu.jsp"></jsp:include>
-	<form  method=post action="uploadServlet" enctype="multipart/form-data" >
+	<form  method=post action="/Cargar_archivo_productos" enctype="multipart/form-data" >
 		<div id="login">
 			<div class="mb-3">
 				<label for="archivo" class="form-label">Cargar Archivo</label>
