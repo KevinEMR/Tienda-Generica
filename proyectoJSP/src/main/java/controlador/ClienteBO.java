@@ -11,15 +11,9 @@ import modelo.ClienteVO;
 public class ClienteBO {
 	private static InterfaceClienteDAO edao;
 	private static boolean result;
-	private static int resultado;
 	private static List<ClienteVO> list;
 	public ClienteBO() throws SQLException {
 		edao = new ClienteDAO();
-	}
-
-	public static int sumar(int n1, int n2) {
-		resultado = n1 + n2;
-		return resultado;
 	}
 
 	public static List<ClienteVO> obtener_todos() {

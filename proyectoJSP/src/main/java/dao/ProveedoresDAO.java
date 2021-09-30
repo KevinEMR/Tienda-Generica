@@ -75,7 +75,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
         try {
             sm = cn.createStatement();
             sm.executeUpdate(
-                    "INSERT INTO bd_tienda_generica.proveedores (nit_proveedor, ciudad_proveedor, direccion_proveedor, nombre_proveedor,telefono_proveedor)\r\n VALUES ('"
+                    "INSERT INTO bd_tienda_generica.proveedores (nitproveedor, ciudad_proveedor, direccion_proveedor, nombre_proveedor,telefono_proveedor)\r\n VALUES ('"
                     + proveedor.getNit() + "','" + proveedor.getCiudad() + "','"
                     + proveedor.getDireccion() + "','" + proveedor.getNombre() + "','"
                     + proveedor.getTelefono() + "');");
