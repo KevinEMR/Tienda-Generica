@@ -58,7 +58,7 @@
 			</div>
 			<div class="mb-3" id="esconder">
 				<label for="Usuario" class="form-label">Cedula</label> <input
-					type="text" class="form-control" name="cedula"
+					type="hidden" class="form-control" name="cedula"
 					value="<%=request.getParameter("cedula")%>">
 			</div>
 			<div class="mb-3 form-check">

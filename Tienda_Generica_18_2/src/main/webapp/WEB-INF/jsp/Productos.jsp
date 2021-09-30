@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.opencsv.*"%>
+<%@page import="java.io.*"%>
+<%@page import="java.io.IOException"%>
+<%@page import="controlador.ProductosBO"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <link href="bootstrap-5.1.0-dist\css\bootstrap.css" rel="stylesheet"
 	type="text/css" />
@@ -30,14 +36,17 @@
 </head>
 <body background="Imagenes\fondo.png">
 	<jsp:include page="Menu.jsp"></jsp:include>
-	<form action="/Productos" method=post>
+	<form action="/Productos" method="post" enctype="multipart/form-data">
 		<div id="login">
 			<div class="mb-3">
 				<label for="archivo" class="form-label">Cargar Archivo</label>
+				<input
+					type="hidden" class="form-control" name="comprobar"
+					value="si">
 			</div>
 
 			<div class="mb-3 form-check">
-				<input type="file" class="btn btn-primary" accept=".csv">
+				<input type="file" class="btn btn-primary" name="file" accept=.csv>
 
 			</div>
 			<div class="mb-3 form-check">

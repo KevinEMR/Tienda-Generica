@@ -1,7 +1,20 @@
 package controlador;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.file.Path;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.SQLException;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class Control {
@@ -145,6 +158,42 @@ public class Control {
 	@RequestMapping("/Productos")
 	public static String productos() {
 		return "Productos";
+	}
+	
+	@PostMapping("/Productos")
+	public String UploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes) throws IOException, SQLException {
+		if(file == null || file.isEmpty()) {
+			return "redirect:/Productos_error";
+		}
+		
+		StringBuilder builder = new StringBuilder();
+		builder.append(System.getProperty("user.home"));
+		builder.append(File.separator);
+		builder.append("productos");
+		builder.append(file.getOriginalFilename());
+		
+		byte[] fileBytes = file.getBytes();
+		Path path = Paths.get(builder.toString());
+		Files.write(path, fileBytes);
+		
+		System.out.println(builder.toString());
+		String encode = URLEncoder.encode(builder.toString(), StandardCharsets.UTF_8);
+		return "redirect:/Productos_cargados?archivo="+encode;
+	}
+	
+	@RequestMapping("/Productos_error")
+	public static String productos_error() {
+		return "Productos_error";
+	}
+	
+	@RequestMapping("/Productos_error_datos")
+	public static String productos_error_datos() {
+		return "Productos_error_datos";
+	}
+	
+	@RequestMapping("/Productos_cargados")
+	public static String productos_cargados() {
+		return "Productos_cargados";
 	}
 }
 

@@ -52,7 +52,7 @@ ProveedoresVO usuario = ProveedoresBO.obteneruno("nitproveedor", request.getPara
 			</div>
 			<div class="mb-3" id="esconder">
 				<label for="Usuario" class="form-label">NIT</label> <input
-					type="text" class="form-control" name="nit"
+					type="hidden" class="form-control" name="nit"
 					value="<%=request.getParameter("nit")%>">
 			</div>
 			<div class="mb-3 form-check">

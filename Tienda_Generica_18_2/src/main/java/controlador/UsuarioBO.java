@@ -10,7 +10,6 @@ import modelo.UsuarioVO;
 public class UsuarioBO {
 	private static InterfaceUsarioDAO edao;
 	private static boolean result;
-	private static int resultado;
 	private static List<UsuarioVO> list;
 	public UsuarioBO() throws SQLException {
 		edao = new UsuarioDAO();
@@ -19,11 +18,6 @@ public class UsuarioBO {
 	public static boolean usuario_existe(String Usuario, String Password) {
 		result = edao.usuario_existe(Usuario, Password);
 		return result;
-	}
-
-	public static int sumar(int n1, int n2) {
-		resultado = n1 + n2;
-		return resultado;
 	}
 
 	public static List<UsuarioVO> obtener_todos() {
