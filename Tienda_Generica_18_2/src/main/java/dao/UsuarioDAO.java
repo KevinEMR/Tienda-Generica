@@ -22,7 +22,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 	public boolean usuario_existe(String Usuario, String Password) {
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios WHERE usuario = '" + Usuario + "' AND password = '" + Password + "';");
+            rs = sm.executeQuery("SELECT * FROM grupo18_equipo2.usuarios WHERE usuario = '" + Usuario + "' AND password = '" + Password + "';");
             
             while (rs.next()) {
                 return true;
