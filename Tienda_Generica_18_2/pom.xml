@@ -50,6 +50,11 @@
 			<artifactId>opencsv</artifactId>
 			<version>5.5.2</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+<dependency>
+    <groupId>com.zaxxer</groupId>
+    <artifactId>HikariCP</artifactId>
+    </dependency>	
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -65,8 +70,8 @@
 			<artifactId>ecj</artifactId>
 			<version>3.18.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>

@@ -13,6 +13,24 @@
 <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.css" rel="stylesheet" type="text/css"/>
 <link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.rtl.css" rel="stylesheet" type="text/css"/>
 <title>Menu navegación</title>
+<style type="text/css">
+ul li ul li{
+display:none;
+}
+
+ul li:hover ul li{
+display:block;
+}
+
+ul li ul li a{
+background: #fff;
+border-bottom:1px solid black;
+}
+
+ul li a:hover{
+background-color: darkgrey;
+}
+</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,7 +46,11 @@
           <a class="nav-link" id = "Provee"  href="/Proveedores">Proveedores</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  id = "Produc" href="/Productos">Productos</a>
+          <a class="nav-link dropdown-toggle"  id = "Produc"  href="/Productos">Productos</a>
+          <ul style="position:absolute">
+          <li><a href="/Productos" class="nav-link" style="width:200%">Subir</a></li>
+          <li><a href="#" class="nav-link" style="width:200%">Tabla</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" id = "Vent"  href="#">Ventas</a>

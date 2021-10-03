@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import modelo.ClienteVO;
+
 @Controller
 public class Control {
 	
@@ -194,6 +196,26 @@ public class Control {
 	@RequestMapping("/Productos_cargados")
 	public static String productos_cargados() {
 		return "Productos_cargados";
+	}
+	
+	@RequestMapping("/Ventas")
+	public static String ventas() {
+		return "Ventas";
+	}
+	
+	@PostMapping("/Ventas")
+	public static String ventas_cliente(@RequestParam("busqueda")String cedula,RedirectAttributes attributes) throws SQLException {
+			@SuppressWarnings("unused")
+			ClienteBO cliente = new ClienteBO();
+			ClienteVO clien = ClienteBO.obteneruno("cedula_cliente", cedula);
+			if(clien!=null) {
+			String name = clien.getNombre();
+			System.out.println(name);
+		return "redirect:/Ventas?name="+clien.getNombre();
+			}
+			else{
+				return "redirect:/Ventas";
+			}
 	}
 }
 
