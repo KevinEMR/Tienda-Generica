@@ -8,7 +8,7 @@ public class ProductosVO {
 	public ProductosVO(){
 	}
 	
-	public ProductosVO(Long codigo , double iva, long nit_proveedor, String nombre, double precio_compra, double precio_venta) {
+	public ProductosVO(long codigo , double iva, long nit_proveedor, String nombre, double precio_compra, double precio_venta) {
 		this.Nit_proveedor = nit_proveedor;
 		this.Nombre = nombre;
 		this.Codigo = codigo;

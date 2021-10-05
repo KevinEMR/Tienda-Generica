@@ -99,6 +99,7 @@ $(document).ready(function() {
         fila.after('<tr id="fila2"><td><label for="cedula_cliente" style=color:#fff;>Nombre Cliente:</label></td><td><input type="text" class="form-control" name="busqueda" value="'+oculto+'" disabled></td><td><label for="cedula_cliente" style=color:#fff;>&nbsp&nbsp&nbspNo.Factura:</label></td><td><input type="text"  class="form-control" name="nombre" value="Mickey" disabled></td><td><button type="button" class="btn btn-outline-light" id="cambiar_cliente">Escoger otro Cliente</button></td><td><button type="button" class="btn btn-outline-light" id="borrar">Borrar todo</button></td></tr>');
         fila.remove();
         document.getElementById("formoculto").style.display = "block";
+        
     $(document).on('click', '#añadir_producto', function(){
     	var fila = $('#fila4');
     	filascant = filascant+1;

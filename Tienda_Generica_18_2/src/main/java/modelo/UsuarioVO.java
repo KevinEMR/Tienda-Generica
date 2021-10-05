@@ -7,7 +7,7 @@ public class UsuarioVO {
 	public UsuarioVO(){
 	}
 	
-	public UsuarioVO(Long cedula , String correo, String nombre, String contraseña, String usuario) {
+	public UsuarioVO(long cedula , String correo, String nombre, String contraseña, String usuario) {
 		this.Cedula = cedula;
 		this.Nombre = nombre;
 		this.Correo = correo;

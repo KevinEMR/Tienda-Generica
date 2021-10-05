@@ -17,6 +17,7 @@ public class ProductosDAO extends Conexion implements InterfaceProductosDAO {
     Connection cn = conectar();
     Statement sm = null;
     ResultSet rs = null;
+    private static List<ProductosVO> list;
     
 	@Override
 	public boolean leerycargar(CSVReader archivo) {
@@ -61,5 +62,65 @@ public class ProductosDAO extends Conexion implements InterfaceProductosDAO {
 	      System.out.println(e);
 	    }
 		return resultado;
+	}
+
+	@Override
+	public boolean actualizar(ProductosVO proveedor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isertarestudiante(ProductosVO proveedor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ProductosVO obteneruno(String parametro, String termino) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean eliminar(long nit) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<ProductosVO> obtenerporparametro(String parametro, String termino) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductosVO> obtener_todos() {
+		try {
+            sm = cn.createStatement();
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.productos;");
+            list = new ArrayList<>();
+            
+            while (rs.next()) {
+            	long codigo = rs.getLong(1);
+				double iva = rs.getDouble(2);
+				long nit_proveedor = rs.getLong(3);
+				String nombre = rs.getString(4);
+				double precio_compra = rs.getDouble(5);
+				double precio_venta = rs.getDouble(6);
+				ProductosVO prod = new ProductosVO(codigo, iva, nit_proveedor, nombre, precio_compra, precio_venta);
+				list.add(prod);
+		}
+            
+        } catch (SQLException e) {
+            System.out.println("ERROR: " + e);
+        } finally {
+            try {
+                sm.close();
+            } catch (SQLException e) {
+                System.out.println("ERROR: " + e);
+            }
+        }
+		return list;
 	}
 }

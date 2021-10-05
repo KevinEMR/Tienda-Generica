@@ -217,5 +217,10 @@ public class Control {
 				return "redirect:/Ventas";
 			}
 	}
+	
+	@RequestMapping("/Confirmar")
+	public static String confirmar() {
+		return "Confirmar";
+	}
 }
 

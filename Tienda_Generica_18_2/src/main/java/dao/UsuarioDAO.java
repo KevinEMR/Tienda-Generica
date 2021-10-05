@@ -48,7 +48,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
             list = new ArrayList<>();
             
             while (rs.next()) {
-            	Long cedula = rs.getLong(1);
+            	long cedula = rs.getLong(1);
 				String correo = rs.getString(2);
 				String nombre = rs.getString(3);
 				String contraseña = rs.getString(4);

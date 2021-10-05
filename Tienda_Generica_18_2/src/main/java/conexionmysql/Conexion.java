@@ -4,10 +4,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-	private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost:3306/bd_tienda_generica";
-	private static final String USUARIO = "root";
-	private static final String CLAVE = "root";
+	private static final String CONTROLADOR = "org.mariadb.jdbc.Driver";
+	private static final String URL = "jdbc:mariadb://camiloc2.czo3ixoe3xoe.us-east-1.rds.amazonaws.com:3306/grupo18_equipo2";
+	private static final String USUARIO = "admin";
+	private static final String CLAVE = "Admin123$";
 	private Connection conexion = null;
 	
 	static {

@@ -7,7 +7,7 @@ public class ProveedoresVO {
 	public ProveedoresVO(){
 	}
 	
-	public ProveedoresVO(Long nit , String ciudad, String nombre, String direccion, String telefono) {
+	public ProveedoresVO(long nit , String ciudad, String nombre, String direccion, String telefono) {
 		this.Nit = nit;
 		this.Nombre = nombre;
 		this.Ciudad = ciudad;

@@ -25,7 +25,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
             list = new ArrayList<>();
             
             while (rs.next()) {
-            	Long cedula = rs.getLong(1);
+            	long cedula = rs.getLong(1);
 				String direccion = rs.getString(2);
 				String correo = rs.getString(3);
 				String nombre = rs.getString(4);
@@ -97,7 +97,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
 	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes WHERE " + parametro + " = '" + termino + "';");
 
 	            while (rs.next()) {
-	                Long cedula = rs.getLong(1);
+	                long cedula = rs.getLong(1);
 	                String direccion = rs.getString(2);
 	                String correo = rs.getString(3);
 	                String nombre = rs.getString(4);
