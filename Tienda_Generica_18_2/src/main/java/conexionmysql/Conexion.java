@@ -5,11 +5,11 @@ import java.sql.SQLException;
 
 public class Conexion {
 	private static final String CONTROLADOR = "org.mariadb.jdbc.Driver";
-	private static final String URL = "jdbc:mariadb://camiloc2.czo3ixoe3xoe.us-east-1.rds.amazonaws.com:3306/grupo18_equipo2";
-	private static final String USUARIO = "admin";
-	private static final String CLAVE = "Admin123$";
+	private static final String URL = "jdbc:mariadb://bd-tienda-generica.c47knbsonjdi.us-east-2.rds.amazonaws.com:3306/bd_tienda_generica_g2";
+	private static final String USUARIO = "adming2";
+	private static final String CLAVE = "Pt3^jWaN^8qi(y0.8";
 	private Connection conexion = null;
-	
+	/**/
 	static {
 		try {
 			Class.forName(CONTROLADOR);

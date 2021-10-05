@@ -51,7 +51,7 @@ public class ProductosBO {
 		return edao.obtenerporparametro(parametro, termino);
 	}
 	
-	public List<ProductosVO> obtener_todos() {
+	public static List<ProductosVO> obtener_todos() {
 		return edao.obtener_todos();
 	}
 }

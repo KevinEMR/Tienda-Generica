@@ -44,5 +44,6 @@ public class UsuarioBO {
 	public static List<UsuarioVO> obtenerporparametro(String parametro, String termino){
 		List<UsuarioVO> usuarios = edao.obtenerporparametro(parametro, termino);
 		return usuarios;
+		
 	}
 }

@@ -3,6 +3,10 @@
 <%@page import="modelo.ClienteVO"%>
 <%@page import="modelo.ProductosVO"%>
 <%@page import="java.util.List"%>
+<%@page import="com.google.gson.Gson" %>
+<%@page import="java.lang.reflect.Type" %>
+<%@page import="java.util.LinkedList" %>
+<%@page import="com.google.gson.reflect.TypeToken" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -99,6 +103,16 @@ $(document).ready(function() {
         fila.after('<tr id="fila2"><td><label for="cedula_cliente" style=color:#fff;>Nombre Cliente:</label></td><td><input type="text" class="form-control" name="busqueda" value="'+oculto+'" disabled></td><td><label for="cedula_cliente" style=color:#fff;>&nbsp&nbsp&nbspNo.Factura:</label></td><td><input type="text"  class="form-control" name="nombre" value="Mickey" disabled></td><td><button type="button" class="btn btn-outline-light" id="cambiar_cliente">Escoger otro Cliente</button></td><td><button type="button" class="btn btn-outline-light" id="borrar">Borrar todo</button></td></tr>');
         fila.remove();
         document.getElementById("formoculto").style.display = "block";
+        <%ProductosBO producto = new ProductosBO();
+        List<ProductosVO> list = ProductosBO.obtener_todos();
+        
+        Type listType = new TypeToken<List<ProductosVO>>() {}.getType();
+        Gson gson = new Gson();
+        String json = gson.toJson(list, listType);
+        System.out.println(json);
+        %>
+        var lista_productos = <%=json%>;
+       
         
     $(document).on('click', '#añadir_producto', function(){
     	var fila = $('#fila4');
@@ -132,6 +146,11 @@ $(document).ready(function() {
     $(document).on('click', '#borrar', function(){
     	window.location.href = "/Ventas";
     });
+    
+    $(document).on('click', '#codigo', function(){
+    	alert(document.getElementById("codigo_producto").value);
+    });
+    
 
 });
 

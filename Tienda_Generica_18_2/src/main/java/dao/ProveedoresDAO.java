@@ -20,7 +20,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 	public List<ProveedoresVO> obtener_todos() {
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.proveedores;");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.proveedores;");
             list = new ArrayList<>();
             
             while (rs.next()) {
@@ -52,7 +52,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("UPDATE bd_tienda_generica.proveedores SET direccion_proveedor = '" + proveedor.getDireccion() + "',ciudad_proveedor = '"
+            sm.executeUpdate("UPDATE bd_tienda_generica_g2.proveedores SET direccion_proveedor = '" + proveedor.getDireccion() + "',ciudad_proveedor = '"
                     + proveedor.getCiudad() + "',nombre_proveedor = '" + proveedor.getNombre() + "',telefono_proveedor = '"
                     + proveedor.getTelefono() + "' WHERE nitproveedor = '" + proveedor.getNit() + "';");
         } catch (SQLException e) {
@@ -75,7 +75,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
         try {
             sm = cn.createStatement();
             sm.executeUpdate(
-                    "INSERT INTO bd_tienda_generica.proveedores (nitproveedor, ciudad_proveedor, direccion_proveedor, nombre_proveedor,telefono_proveedor)\r\n VALUES ('"
+                    "INSERT INTO bd_tienda_generica_g2.proveedores (nitproveedor, ciudad_proveedor, direccion_proveedor, nombre_proveedor,telefono_proveedor)\r\n VALUES ('"
                     + proveedor.getNit() + "','" + proveedor.getCiudad() + "','"
                     + proveedor.getDireccion() + "','" + proveedor.getNombre() + "','"
                     + proveedor.getTelefono() + "');");
@@ -96,7 +96,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 	public ProveedoresVO obteneruno(String parametro, String termino) {
 		 try {
 	            sm = cn.createStatement();
-	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.proveedores WHERE " + parametro + " = '" + termino + "';");
+	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.proveedores WHERE " + parametro + " = '" + termino + "';");
 
 	            while (rs.next()) {
 	                Long nit = rs.getLong(1);
@@ -124,7 +124,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("DELETE FROM bd_tienda_generica.proveedores\r\nWHERE nitproveedor = '" + nit + "';");
+            sm.executeUpdate("DELETE FROM bd_tienda_generica_g2.proveedores\r\nWHERE nitproveedor = '" + nit + "';");
         } catch (SQLException e) {
             System.out.println("ERROR: " + e);
             resultado = false;
@@ -145,7 +145,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
         boolean nodatos = true;
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.proveedores WHERE " + parametro + " = '" + termino + "';");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.proveedores WHERE " + parametro + " = '" + termino + "';");
 
             while (rs.next()) {
                 long nit = rs.getLong(1);

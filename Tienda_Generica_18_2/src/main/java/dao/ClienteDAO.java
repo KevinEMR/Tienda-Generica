@@ -21,7 +21,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
 	public List<ClienteVO> obtener_todos() {
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes;");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.clientes;");
             list = new ArrayList<>();
             
             while (rs.next()) {
@@ -51,7 +51,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("UPDATE bd_tienda_generica.clientes SET direccion_cliente = '" + cliente.getDireccion() + "',email_cliente = '"
+            sm.executeUpdate("UPDATE bd_tienda_generica_g2.clientes SET direccion_cliente = '" + cliente.getDireccion() + "',email_cliente = '"
                     + cliente.getCorreo() + "',nombre_cliente = '" + cliente.getNombre() + "',telefono_cliente = '"
                     + cliente.getTelefono() + "' WHERE cedula_cliente = '" + cliente.getCedula() + "';");
         } catch (SQLException e) {
@@ -73,7 +73,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
         try {
             sm = cn.createStatement();
             sm.executeUpdate(
-                    "INSERT INTO bd_tienda_generica.clientes (cedula_cliente,direccion_cliente,email_cliente,nombre_cliente,telefono_cliente)\r\n VALUES ('"
+                    "INSERT INTO bd_tienda_generica_g2.clientes (cedula_cliente,direccion_cliente,email_cliente,nombre_cliente,telefono_cliente)\r\n VALUES ('"
                     + cliente.getCedula() + "','" + cliente.getDireccion() + "','"
                     + cliente.getCorreo() + "','" + cliente.getNombre() + "','"
                     + cliente.getTelefono() + "');");
@@ -94,7 +94,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
 	public ClienteVO obteneruno(String parametro, String termino) {
 		 try {
 	            sm = cn.createStatement();
-	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes WHERE " + parametro + " = '" + termino + "';");
+	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.clientes WHERE " + parametro + " = '" + termino + "';");
 
 	            while (rs.next()) {
 	                long cedula = rs.getLong(1);
@@ -122,7 +122,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("DELETE FROM bd_tienda_generica.clientes\r\nWHERE Cedula_cliente = '" + cedula + "';");
+            sm.executeUpdate("DELETE FROM bd_tienda_generica_g2.clientes\r\nWHERE Cedula_cliente = '" + cedula + "';");
         } catch (SQLException e) {
             System.out.println("ERROR: " + e);
             resultado = false;
@@ -143,7 +143,7 @@ public class ClienteDAO extends Conexion implements InterfaceClienteDAO {
         boolean nodatos = true;
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.clientes WHERE " + parametro + " = '" + termino + "';");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.clientes WHERE " + parametro + " = '" + termino + "';");
 
             while (rs.next()) {
                 long cedula = rs.getLong(1);

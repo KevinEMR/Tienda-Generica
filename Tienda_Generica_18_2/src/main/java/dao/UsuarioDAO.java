@@ -22,7 +22,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 	public boolean usuario_existe(String Usuario, String Password) {
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios WHERE usuario = '" + Usuario + "' AND password = '" + Password + "';");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.usuarios WHERE usuario = '" + Usuario + "' AND password = '" + Password + "';");
             
             while (rs.next()) {
                 return true;
@@ -44,7 +44,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 	public List<UsuarioVO> obtener_todos() {
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios;");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.usuarios;");
             list = new ArrayList<>();
             
             while (rs.next()) {
@@ -74,7 +74,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("UPDATE bd_tienda_generica.usuarios SET usuario = '" + usuario.getUsuario() + "',email_usuario = '"
+            sm.executeUpdate("UPDATE bd_tienda_generica_g2.usuarios SET usuario = '" + usuario.getUsuario() + "',email_usuario = '"
                     + usuario.getCorreo() + "',nombre_usuario = '" + usuario.getNombre() + "',password = '"
                     + usuario.getContraseña() + "' WHERE cedula_usuario = '" + usuario.getCedula() + "';");
         } catch (SQLException e) {
@@ -96,7 +96,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
         try {
             sm = cn.createStatement();
             sm.executeUpdate(
-                    "INSERT INTO bd_tienda_generica.usuarios (cedula_usuario,email_usuario,nombre_usuario,password,usuario)\r\n VALUES ('"
+                    "INSERT INTO bd_tienda_generica_g2.usuarios (cedula_usuario,email_usuario,nombre_usuario,password,usuario)\r\n VALUES ('"
                     + usuario.getCedula() + "','" + usuario.getCorreo() + "','"
                     + usuario.getNombre() + "','" + usuario.getContraseña() + "','"
                     + usuario.getUsuario() + "');");
@@ -117,7 +117,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 	public UsuarioVO obteneruno(String parametro, String termino) {
 		 try {
 	            sm = cn.createStatement();
-	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios WHERE " + parametro + " = '" + termino + "';");
+	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.usuarios WHERE " + parametro + " = '" + termino + "';");
 
 	            while (rs.next()) {
 	                Long cedula = rs.getLong(1);
@@ -145,7 +145,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
 		boolean resultado = true;
         try {
             sm = cn.createStatement();
-            sm.executeUpdate("DELETE FROM bd_tienda_generica.usuarios\r\nWHERE cedula_usuario = '" + cedula + "';");
+            sm.executeUpdate("DELETE FROM bd_tienda_generica_g2.usuarios\r\nWHERE cedula_usuario = '" + cedula + "';");
         } catch (SQLException e) {
         	JOptionPane.showMessageDialog(null, "No se pudo consultar"+e);
             resultado = false;
@@ -166,7 +166,7 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
         boolean nodatos = true;
         try {
             sm = cn.createStatement();
-            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica.usuarios WHERE " + parametro + " = '" + termino + "';");
+            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.usuarios WHERE " + parametro + " = '" + termino + "';");
 
             while (rs.next()) {
                 long cedula = rs.getLong(1);
