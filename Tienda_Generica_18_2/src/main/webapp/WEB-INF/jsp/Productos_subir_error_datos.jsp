@@ -36,7 +36,7 @@
 </head>
 <body background="Imagenes\fondo.png">
 	<jsp:include page="Menu.jsp"></jsp:include>
-	<form action="/Productos" method="post" enctype="multipart/form-data">
+	<form action="/Productos_subir" method="post" enctype="multipart/form-data">
 		<div id="login">
 			<div id="mensaje">
 				Los datos del archivo son invalidos

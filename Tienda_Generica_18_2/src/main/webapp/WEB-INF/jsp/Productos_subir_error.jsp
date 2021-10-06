@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <link href="bootstrap-5.1.0-dist\css\bootstrap.css" rel="stylesheet"
 	type="text/css" />
@@ -35,49 +36,24 @@
 </head>
 <body background="Imagenes\fondo.png">
 	<jsp:include page="Menu.jsp"></jsp:include>
-	<form action="/Productos" method="post" enctype="multipart/form-data">
+	<form action="/Productos_subir" method="post" enctype="multipart/form-data">
 		<div id="login">
-			<div id="mensaje">Archivo cargado</div>
-			<div class="mb-3">
-				<label for="archivo" class="form-label">Cargar Archivo</label> <input
-					type="hidden" class="form-control" name="comprobar" value="${path}">
-			</div>
+			<div id="mensaje">
+				Por favor cargar un archivo
+				</div>
+				<div class="mb-3">
+					<label for="archivo" class="form-label">Cargar Archivo</label> <input
+						type="hidden" class="form-control" name="comprobar" value="si">
 
-			<div class="mb-3 form-check">
-				<input type="file" class="btn btn-primary" name="file" accept=.csv>
+				<div class="mb-3 form-check">
+					<input type="file" class="btn btn-primary" name="file" accept=.csv>
 
-			</div>
-			<div class="mb-3 form-check">
-				<button type="submit" class="btn btn-primary">Cargar</button>
+				</div>
+				<div class="mb-3 form-check">
+					<button type="submit" class="btn btn-primary">Cargar</button>
+				</div>
 			</div>
 		</div>
 	</form>
-	<%
-	System.out.println("Entro a leer archivo");
-	FileReader archCSV = null;
-	CSVReader csvReader = null;
-	ProductosBO path = new ProductosBO();
-	try {
-		archCSV = new FileReader(request.getParameter("archivo"));
-		CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
-		csvReader = new CSVReaderBuilder(archCSV).withCSVParser(conPuntoYComa).build();
-		ProductosBO productos = new ProductosBO();
-		boolean resultado = productos.leerycargar(csvReader);
-		if(!resultado){
-			response.sendRedirect("/Productos_error_datos");
-		}
-	} catch (IOException e) {
-		System.out.println(e);
-	} catch (Exception e) {
-		System.out.println(e);
-	} finally {
-		try {
-			archCSV.close();
-			csvReader.close();
-		} catch (IOException e) {
-			System.out.println(e);
-		}
-	}
-	%>
 </body>
 </html>

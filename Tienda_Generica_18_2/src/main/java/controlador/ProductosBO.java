@@ -19,35 +19,35 @@ public class ProductosBO {
 		edao = new ProductosDAO();
 	}
 
-	public boolean leerycargar(CSVReader archivo) {
+	public static boolean leerycargar(CSVReader archivo) {
 		result = edao.leerycargar(archivo);
 		return result;
 	}
 	
-	public boolean actualizar(ProductosVO producto) {
+	public  static boolean actualizar(ProductosVO producto) {
 		result = edao.actualizar(producto);
 		return result;
 	}
 
 	
-	public boolean isertarestudiante(ProductosVO productos) {
+	public static boolean isertarestudiante(ProductosVO productos) {
 		result = edao.isertarestudiante(productos);
 		return result;
 	}
 
 	
-	public ProductosVO obteneruno(String parametro, String termino) {
+	public static ProductosVO obteneruno(String parametro, String termino) {
 		return edao.obteneruno(parametro, termino);
 	}
 
 	
-	public boolean eliminar(long nit) {
+	public static boolean eliminar(long nit) {
 		result = edao.eliminar(nit);
 		return result;
 	}
 
 	
-	public List<ProductosVO> obtenerporparametro(String parametro, String termino) {
+	public static List<ProductosVO> obtenerporparametro(String parametro, String termino) {
 		return edao.obtenerporparametro(parametro, termino);
 	}
 	

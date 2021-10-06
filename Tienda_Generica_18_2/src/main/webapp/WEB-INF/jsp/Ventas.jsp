@@ -58,14 +58,14 @@ display:none;
 <tbody>
 <tr id = "fila3">
 <td><label for="codigo_producto" class="">Código:</label></td>
-<td><input type="text" class="form-control" name="busqueda_producto" id="codigo_producto"></td>
-<td><button type="button" class="btn btn-outline-dark" id="codigo" >Consultar</button></td>
+<td><input type="text" class="form-control" name="busqueda_producto4" id="codigo_producto4"></td>
+<td><button type="button" class="btn btn-outline-dark" id="codigo" onclick="productonombre(4)">Consultar</button></td>
 <td> <label for="codigo_producto">Nombre:</label></td>
-<td><input type="text" class="form-control" name="nombre_producto" disabled></td>
+<td><input type="text" class="form-control" name="producto4" id="nombre_producto4" disabled></td>
 <td> <label for="codigo_producto">Cantidad:</label></td>
-<td><input type="text" class="form-control" name="cantidad"></td>
+<td><input type="text" class="form-control" name="cantidad4"></td>
 <td> <label for="codigo_producto">Vlr.Total:</label></td>
-<td><input type="text" class="form-control" name="total" disabled></td>
+<td><input type="text" class="form-control" name="total4" disabled></td>
 </tr>
 <tr id="fila4">
 <td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td>
@@ -103,21 +103,11 @@ $(document).ready(function() {
         fila.after('<tr id="fila2"><td><label for="cedula_cliente" style=color:#fff;>Nombre Cliente:</label></td><td><input type="text" class="form-control" name="busqueda" value="'+oculto+'" disabled></td><td><label for="cedula_cliente" style=color:#fff;>&nbsp&nbsp&nbspNo.Factura:</label></td><td><input type="text"  class="form-control" name="nombre" value="Mickey" disabled></td><td><button type="button" class="btn btn-outline-light" id="cambiar_cliente">Escoger otro Cliente</button></td><td><button type="button" class="btn btn-outline-light" id="borrar">Borrar todo</button></td></tr>');
         fila.remove();
         document.getElementById("formoculto").style.display = "block";
-        <%ProductosBO producto = new ProductosBO();
-        List<ProductosVO> list = ProductosBO.obtener_todos();
-        
-        Type listType = new TypeToken<List<ProductosVO>>() {}.getType();
-        Gson gson = new Gson();
-        String json = gson.toJson(list, listType);
-        System.out.println(json);
-        %>
-        var lista_productos = <%=json%>;
-       
-        
+               
     $(document).on('click', '#añadir_producto', function(){
     	var fila = $('#fila4');
     	filascant = filascant+1;
-    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">Código:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto"></td><br><td><button type="button" class="btn btn-outline-dark" id="codigo">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="nombre_producto" disabled></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total" disabled></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
+    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">Código:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto'+filascant+'" id="codigo_producto'+filascant+'"></td><br><td><button type="button" class="btn btn-outline-dark" id="codigo" onclick="productonombre('+filascant+')">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="producto'+filascant+'" id="nombre_producto'+filascant+'" disabled></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad'+filascant+'"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total'+filascant+'" disabled></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
     	fila.remove();
     });
     
@@ -147,14 +137,33 @@ $(document).ready(function() {
     	window.location.href = "/Ventas";
     });
     
-    $(document).on('click', '#codigo', function(){
-    	alert(document.getElementById("codigo_producto").value);
-    });
-    
 
 });
 
 <%System.out.println(request.getParameter("name"));} %>
+</script>
+<script type="text/javascript">
+function productonombre(num){
+	<%ProductosBO producto = new ProductosBO();
+    List<ProductosVO> list = ProductosBO.obtener_todos();
+    
+    Type listType = new TypeToken<List<ProductosVO>>() {}.getType();
+    Gson gson = new Gson();
+    String json = gson.toJson(list, listType);
+    %>
+    var lista_productos = <%=json%>;
+	let cod = document.getElementById("codigo_producto"+num).value;
+	let name = document.getElementById('codigo_producto'+num).id;
+	name = name.replace("codigo","nombre")
+	for(var i = 0;i<lista_productos.length;i++){
+		if(lista_productos[i]['Codigo']==cod){
+			document.getElementById(name).value = lista_productos[i]['Nombre'];
+		}
+	}
+	
+};
+
+
 </script>
 </body>
 </html>

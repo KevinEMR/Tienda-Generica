@@ -14,6 +14,7 @@ public class ProductosVO {
 		this.Codigo = codigo;
 		this.Precio_compra = precio_compra;
 		this.Precio_venta = precio_venta;
+		this.Iva = iva;
 	}
 
 	public String getNombre() {

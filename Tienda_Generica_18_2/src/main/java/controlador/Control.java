@@ -162,10 +162,32 @@ public class Control {
 		return "Productos";
 	}
 	
-	@PostMapping("/Productos")
+	@RequestMapping("/Agregar_producto")
+	public static String productos_agregar() {
+		return "Producto_agregar";
+	}
+	
+	@RequestMapping("/Editar_producto")
+	public static String editar_producto() {
+		System.out.println("Entro al metodo");
+		return "Producto_editar";
+	}
+	
+	@RequestMapping("/Eliminar_producto")
+	public static String eliminar_producto() {
+		System.out.println("Entro al metodo");
+		return "Producto_eliminar";
+	}
+	
+	@RequestMapping("/Productos_subir")
+	public static String productos_subir() {
+		return "Productos_subir";
+	}
+	
+	@PostMapping("/Productos_subir")
 	public String UploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes) throws IOException, SQLException {
 		if(file == null || file.isEmpty()) {
-			return "redirect:/Productos_error";
+			return "redirect:/Productos_subir_error";
 		}
 		
 		StringBuilder builder = new StringBuilder();
@@ -180,22 +202,22 @@ public class Control {
 		
 		System.out.println(builder.toString());
 		String encode = URLEncoder.encode(builder.toString(), StandardCharsets.UTF_8);
-		return "redirect:/Productos_cargados?archivo="+encode;
+		return "redirect:/Productos_subir_cargados?archivo="+encode;
 	}
 	
-	@RequestMapping("/Productos_error")
+	@RequestMapping("/Productos_subir_error")
 	public static String productos_error() {
-		return "Productos_error";
+		return "Productos_subir_error";
 	}
 	
-	@RequestMapping("/Productos_error_datos")
+	@RequestMapping("/Productos_subir_error_datos")
 	public static String productos_error_datos() {
-		return "Productos_error_datos";
+		return "Productos_subir_error_datos";
 	}
 	
-	@RequestMapping("/Productos_cargados")
+	@RequestMapping("/Productos_subir_cargados")
 	public static String productos_cargados() {
-		return "Productos_cargados";
+		return "Productos_subir_cargados";
 	}
 	
 	@RequestMapping("/Ventas")
@@ -218,9 +240,5 @@ public class Control {
 			}
 	}
 	
-	@RequestMapping("/Confirmar")
-	public static String confirmar() {
-		return "Confirmar";
-	}
 }
 

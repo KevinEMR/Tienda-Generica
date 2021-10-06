@@ -36,22 +36,20 @@
 </head>
 <body background="Imagenes\fondo.png">
 	<jsp:include page="Menu.jsp"></jsp:include>
-	<form action="/Productos" method="post" enctype="multipart/form-data">
+	<form action="/Productos_subir" method="post" enctype="multipart/form-data">
 		<div id="login">
-			<div id="mensaje">
-				Por favor cargar un archivo
-				</div>
-				<div class="mb-3">
-					<label for="archivo" class="form-label">Cargar Archivo</label> <input
-						type="hidden" class="form-control" name="comprobar" value="si">
+			<div class="mb-3">
+				<label for="archivo" class="form-label">Cargar Archivo</label>
+				<input
+					type="hidden" class="form-control" name="comprobar"
+					value="si">
+			</div>
 
-				<div class="mb-3 form-check">
-					<input type="file" class="btn btn-primary" name="file" accept=.csv>
-
-				</div>
-				<div class="mb-3 form-check">
-					<button type="submit" class="btn btn-primary">Cargar</button>
-				</div>
+			<div class="mb-3 form-check">
+				<input type="file" class="btn btn-primary" name="file" accept=.csv>
+			</div>
+			<div class="mb-3 form-check">
+				<button type="submit" class="btn btn-primary">Cargar</button>
 			</div>
 		</div>
 	</form>

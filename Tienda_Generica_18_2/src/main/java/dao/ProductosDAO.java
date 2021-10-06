@@ -69,7 +69,7 @@ public class ProductosDAO extends Conexion implements InterfaceProductosDAO {
 		boolean resultado = true;
 		try {
 			sm = cn.createStatement();
-			sm.executeUpdate("UPDATE bd_tienda_generica_g2.proveedores SET ivacompra = '" + producto.getIva()
+			sm.executeUpdate("UPDATE bd_tienda_generica_g2.productos SET ivacompra = '" + producto.getIva()
 					+ "',nitproveedor = '" + producto.getNit_proveedor() + "',nombre_producto = '"
 					+ producto.getNombre() + "',precio_compra = '" + producto.getPrecio_compra() + "',precio_venta = '"
 					+ producto.getPrecio_venta() + "' WHERE codigo_producto = '" + producto.getCodigo() + "';");
@@ -87,27 +87,111 @@ public class ProductosDAO extends Conexion implements InterfaceProductosDAO {
 	}
 
 	@Override
-	public boolean isertarestudiante(ProductosVO proveedor) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isertarestudiante(ProductosVO producto) {
+		boolean resultado = true;
+		try {
+			sm = cn.createStatement();
+			sm.executeUpdate(
+					"INSERT INTO bd_tienda_generica_g2.productos (codigo_producto, ivacompra, nitproveedor, nombre_producto, precio_compra, precio_venta)\r\n VALUES ('"
+							+ producto.getCodigo() + "','" + producto.getIva() + "','" + producto.getNit_proveedor()
+							+ "','" + producto.getNombre() + "','" + producto.getPrecio_compra() + "','"
+							+ producto.getPrecio_venta() + "');");
+		} catch (SQLException e) {
+			System.out.println("ERROR: " + e);
+			resultado = false;
+		} finally {
+			try {
+				sm.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: " + e);
+			}
+		}
+		return resultado;
 	}
 
 	@Override
 	public ProductosVO obteneruno(String parametro, String termino) {
-		// TODO Auto-generated method stub
+		try {
+			sm = cn.createStatement();
+			rs = sm.executeQuery(
+					"SELECT * FROM bd_tienda_generica_g2.productos WHERE " + parametro + " = '" + termino + "';");
+
+			while (rs.next()) {
+				long codigo = rs.getLong(1);
+				double iva = rs.getDouble(2);
+				long nit_proveedor = rs.getLong(3);
+				String nombre = rs.getString(4);
+				double precio_compra = rs.getDouble(5);
+				double precio_venta = rs.getDouble(6);
+				ProductosVO prod = new ProductosVO(codigo, iva, nit_proveedor, nombre, precio_compra, precio_venta);
+				return prod;
+			}
+		} catch (SQLException e) {
+			System.out.println("ERROR: " + e);
+		} finally {
+			try {
+				sm.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: " + e);
+			}
+		}
 		return null;
 	}
 
 	@Override
-	public boolean eliminar(long nit) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean eliminar(long codigo) {
+		boolean resultado = true;
+		try {
+			sm = cn.createStatement();
+			sm.executeUpdate(
+					"DELETE FROM bd_tienda_generica_g2.productos\r\nWHERE codigo_producto = '" + codigo + "';");
+		} catch (SQLException e) {
+			System.out.println("ERROR: " + e);
+			resultado = false;
+		} finally {
+			try {
+				sm.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: " + e);
+			}
+		}
+		return resultado;
 	}
 
 	@Override
 	public List<ProductosVO> obtenerporparametro(String parametro, String termino) {
-		// TODO Auto-generated method stub
-		return null;
+		List<ProductosVO> productos;
+		productos = new ArrayList<>();
+		boolean nodatos = true;
+		try {
+			sm = cn.createStatement();
+			rs = sm.executeQuery(
+					"SELECT * FROM bd_tienda_generica_g2.productos WHERE " + parametro + " = '" + termino + "';");
+
+			while (rs.next()) {
+				long codigo = rs.getLong(1);
+				double iva = rs.getDouble(2);
+				long nit_proveedor = rs.getLong(3);
+				String nombre = rs.getString(4);
+				double precio_compra = rs.getDouble(5);
+				double precio_venta = rs.getDouble(6);
+				ProductosVO prod = new ProductosVO(codigo, iva, nit_proveedor, nombre, precio_compra, precio_venta);
+				productos.add(prod);
+				nodatos = false;
+			}
+		} catch (SQLException e) {
+			System.out.println("ERROR: " + e);
+		} finally {
+			try {
+				sm.close();
+				if (nodatos) {
+					productos = null;
+				}
+			} catch (SQLException e) {
+				System.out.println("ERROR: " + e);
+			}
+		}
+		return productos;
 	}
 
 	@Override

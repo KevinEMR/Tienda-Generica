@@ -48,12 +48,12 @@ background-color: darkgrey;
         <li class="nav-item">
           <a class="nav-link dropdown-toggle"  id = "Produc"  href="/Productos">Productos</a>
           <ul style="position:absolute">
-          <li><a href="/Productos" class="nav-link" style="width:200%">Subir</a></li>
-          <li><a href="#" class="nav-link" style="width:200%">Tabla</a></li>
+          <li><a href="/Productos_subir" class="nav-link" style="width:200%">Subir</a></li>
+          <li><a href="/Productos" class="nav-link" style="width:200%">Tabla</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id = "Vent"  href="#">Ventas</a>
+          <a class="nav-link" id = "Vent"  href="/Ventas">Ventas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id = "Repor" href="#">Reportes</a>

@@ -24,7 +24,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
             list = new ArrayList<>();
             
             while (rs.next()) {
-            	Long nit = rs.getLong(1);
+            	long nit = rs.getLong(1);
 				String ciudad = rs.getString(2);
 				String direccion = rs.getString(3);
 				String nombre = rs.getString(4);
@@ -99,7 +99,7 @@ public class ProveedoresDAO extends Conexion implements InterfaceProveedoresDAO 
 	            rs = sm.executeQuery("SELECT * FROM bd_tienda_generica_g2.proveedores WHERE " + parametro + " = '" + termino + "';");
 
 	            while (rs.next()) {
-	                Long nit = rs.getLong(1);
+	                long nit = rs.getLong(1);
 	                String ciudad = rs.getString(2);
 	                String direccion = rs.getString(3);
 	                String nombre = rs.getString(4);
