@@ -6,22 +6,6 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="bootstrap-5.1.0-dist\css\bootstrap.css" rel="stylesheet"
-	type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap.rtl.css" rel="stylesheet"
-	type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-grid.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-grid.rtl.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-reboot.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-reboot.rtl.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.css"
-	rel="stylesheet" type="text/css" />
-<link href="bootstrap-5.1.0-dist\css\bootstrap-utilities.rtl.css"
-	rel="stylesheet" type="text/css" />
 <title>Editar Usuario</title>
 <style type="text/css">
 #esconder {
@@ -30,6 +14,7 @@
 </style>
 </head>
 <body background="Imagenes\fondo.png">
+<jsp:include page = "Menu.jsp"></jsp:include>
 	<%
 	UsuarioVO usuario = UsuarioBO.obteneruno("cedula_usuario", request.getParameter("cedula"));
 	%>
