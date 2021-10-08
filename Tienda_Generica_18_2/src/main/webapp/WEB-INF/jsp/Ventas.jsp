@@ -38,11 +38,10 @@ margin-top:15px;
 display:none;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 <jsp:include page = "Menu.jsp"></jsp:include>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src=""></script>
 <form id = "consultar_cliente">
 <table>
 <tr id = "fila1">
@@ -57,33 +56,33 @@ display:none;
 <table class="table table-hover">
 <tbody>
 <tr id = "fila3">
-<td><label for="codigo_producto" class="">Código:</label></td>
+<td><label for="codigo_producto" class="">Cï¿½digo:</label></td>
 <td><input type="text" class="form-control" name="busqueda_producto4" id="codigo_producto4"></td>
-<td><button type="button" class="btn btn-outline-dark" id="codigo" onclick="productonombre(4)">Consultar</button></td>
+<td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre(4)">Consultar</button></td>
 <td> <label for="codigo_producto">Nombre:</label></td>
 <td><input type="text" class="form-control" name="producto4" id="nombre_producto4" disabled></td>
 <td> <label for="codigo_producto">Cantidad:</label></td>
 <td><input type="text" class="form-control" name="cantidad4" id="cantidad_producto4" onchange="matematicas(this.value,4)"></td>
 <td> <label for="codigo_producto">Vlr.Total:</label></td>
-<td><input type="text" class="form-control" name="total4" id="total_producto4" disabled></td>
+<td><input type="text" class="form-control" name="total4" id="total_producto4"  disabled></td>
 </tr>
 <tr id="fila4">
-<td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td>
+<td><button type="button" class="btn btn-outline-dark" id="aï¿½adir_producto">+</button><td>
 </tr>
 </tbody>
 </table>
 <table style="margin:auto;">
 <tr>
 <td> <label for="codigo_producto">Total Venta:</label></td>
-<td><input type="text" class="form-control" name="factura" disabled></td>
+<td><input type="text" class="form-control" name="factura" id = "Total_venta" disabled></td>
 </tr>
 <tr>
 <td> <label for="codigo_producto">Total IVA:</label></td>
-<td><input type="text" class="form-control" name="iva" disabled></td>
+<td><input type="text" class="form-control" name="iva" id = "Total_iva" disabled></td>
 </tr>
 <tr>
 <td> <label for="codigo_producto">Total con IVA:</label></td>
-<td><input type="text" class="form-control" name="total_factura" disabled></td>
+<td><input type="text" class="form-control" name="total_factura" id = "Total_final" disabled></td>
 </tr>
 </table>
 <button type="submit" class="btn btn-outline-dark" id="buscar_codigo">Confirmar</button>
@@ -97,10 +96,10 @@ $(document).ready(function() {
 	buscarcliente();
 	}
 	
-    $(document).on('click', '#añadir_producto', function(){
+    $(document).on('click', '#aï¿½adir_producto', function(){
     	var fila = $('#fila4');
     	filascant = filascant+1;
-    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">Código:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto'+filascant+'" id="codigo_producto'+filascant+'"></td><br><td><button type="button" class="btn btn-outline-dark" id="codigo" onclick="productonombre('+filascant+')">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="producto'+filascant+'" id="nombre_producto'+filascant+'" disabled></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad'+filascant+'" id="cantidad_producto'+filascant+'" onchange="matematicas(this.value,'+filascant+')"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total'+filascant+'" id="total_producto'+filascant+'" disabled></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
+    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">Cï¿½digo:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto'+filascant+'" id="codigo_producto'+filascant+'"></td><br><td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre('+filascant+')">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="producto'+filascant+'" id="nombre_producto'+filascant+'" disabled></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad'+filascant+'" id="cantidad_producto'+filascant+'" onchange="matematicas(this.value,'+filascant+')"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total'+filascant+'" id="total_producto'+filascant+'" class="T_producto" disabled></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="aï¿½adir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
     	fila.remove();
     });
     
@@ -113,12 +112,13 @@ $(document).ready(function() {
     	   else if(filascant==5){
     		var fila = $('#fila'+filascant);
    	    	var fila2 = $('#fila4');
-   	    	fila2.after('<tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td></tr>');
+   	    	fila2.after('<tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="aï¿½adir_producto">+</button><td></tr>');
    	    	fila2.remove();
    	    	fila.remove();
    	    	filascant = filascant-1;
     		  
-    	   }});
+    	   }
+    	   totales(filascant)});
     
     $(document).on('click', '#cambiar_cliente', function(){
     	var fila = $('#fila2');
@@ -148,14 +148,15 @@ Gson gsonCliente = new Gson();
 String jsonCliente = gson.toJson(listcliente, listTypeCliente);
 System.out.println(jsonCliente);
 %>
+var filas = 4;
 function productonombre(num){
     var lista_productos = <%=json%>;
 	let cod = document.getElementById("codigo_producto"+num).value;
-	let name = document.getElementById('nombre_producto'+num).id;
 	let comprobar = true;
 	for(var i = 0;i<lista_productos.length;i++){
 		if(lista_productos[i]['Codigo']==cod){
-			document.getElementById(name).value = lista_productos[i]['Nombre'];
+			filas = num;
+			document.getElementById('nombre_producto'+num).value = lista_productos[i]['Nombre'];
 			matematicas(document.getElementById('cantidad_producto'+num).value,num);
 			comprobar = false;
 		}
@@ -186,16 +187,37 @@ function buscarcliente(){
 }
 
 function matematicas(val,num){
-	var lista_productos = <%=json%>;
+	let lista_productos = <%=json%>;
 	let cod = document.getElementById("codigo_producto"+num).value;
-	let name = document.getElementById('total_producto'+num).id;
-	(lista_productos.length)
 	for(var i = 0;i<lista_productos.length;i++){
 		if(lista_productos[i]['Codigo']==cod){
-			document.getElementById(name).value = val*lista_productos[i]['Precio_venta'];
+			document.getElementById('total_producto'+num).value = val*lista_productos[i]['Precio_venta'];
+			totales(filas);
 		}
 	}
 }
+	
+	function totales(num){
+		let lista_productos = <%=json%>;
+		let bank = 0;
+		let sumaiva = 0;
+		for(let i=4;i<=num;i++){
+			bank += parseInt(document.getElementById('total_producto'+i).value);
+			<%System.out.println(json);%>
+				let cod = document.getElementById("codigo_producto"+i).value;
+				for(let p = 0;p<lista_productos.length;p++){
+				if(lista_productos[p]['Codigo']==cod){
+					let iva =document.getElementById('cantidad_producto'+i).value *(lista_productos[p]['Precio_venta']*(lista_productos[p]['Iva']/100));
+					sumaiva += iva;
+					break;
+				}
+			}
+		}
+		document.getElementById("Total_venta").value = bank;
+		document.getElementById("Total_iva").value = sumaiva;
+		document.getElementById("Total_final").value = sumaiva+bank;
+		}
+
 
 </script>
 </body>
