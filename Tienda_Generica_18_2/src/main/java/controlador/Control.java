@@ -223,5 +223,10 @@ public class Control {
 		return "Ventas";
 	}
 	
+	@PostMapping("/Ventas")
+	public static String detalle_ventas() {
+		return "Ventas_datos";
+	}
+	
 }
 

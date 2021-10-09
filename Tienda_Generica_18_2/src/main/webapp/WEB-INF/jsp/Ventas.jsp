@@ -1,7 +1,9 @@
 <%@page import="controlador.ClienteBO"%>
 <%@page import="controlador.ProductosBO"%>
+<%@page import="controlador.VentasBO"%>
 <%@page import="modelo.ClienteVO"%>
 <%@page import="modelo.ProductosVO"%>
+<%@page import="modelo.VentasVO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.google.gson.Gson" %>
 <%@page import="java.lang.reflect.Type" %>
@@ -52,7 +54,7 @@ display:none;
 </table>
 </form>
 <div id="formoculto">
-<form id = "consultar_producto" action="/Ventas">
+<form id = "consultar_producto" action="/Ventas" method="post" >
 <table class="table table-hover">
 <tbody>
 <tr id = "fila3">
@@ -60,11 +62,11 @@ display:none;
 <td><input type="text" class="form-control" name="busqueda_producto4" id="codigo_producto4"></td>
 <td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre(4)">Consultar</button></td>
 <td> <label for="codigo_producto">Nombre:</label></td>
-<td><input type="text" class="form-control" name="producto4" id="nombre_producto4" disabled></td>
+<td><input type="text" class="form-control" name="producto4" id="nombre_producto4" readonly></td>
 <td> <label for="codigo_producto">Cantidad:</label></td>
 <td><input type="text" class="form-control" name="cantidad4" id="cantidad_producto4" onchange="matematicas(this.value,4)"></td>
 <td> <label for="codigo_producto">Vlr.Total:</label></td>
-<td><input type="text" class="form-control" name="total4" id="total_producto4"  disabled></td>
+<td><input type="text" class="form-control" name="total4" id="total_producto4"  readonly></td>
 </tr>
 <tr id="fila4">
 <td><button type="button" class="btn btn-outline-dark" id="a�adir_producto">+</button><td>
@@ -74,15 +76,17 @@ display:none;
 <table style="margin:auto;">
 <tr>
 <td> <label for="codigo_producto">Total Venta:</label></td>
-<td><input type="text" class="form-control" name="factura" id = "Total_venta" disabled></td>
+<td><input type="text" class="form-control" name="factura" id = "Total_venta" readonly></td>
 </tr>
 <tr>
 <td> <label for="codigo_producto">Total IVA:</label></td>
-<td><input type="text" class="form-control" name="iva" id = "Total_iva" disabled></td>
+<td><input type="text" class="form-control" name="iva" id = "Total_iva" readonly></td>
 </tr>
 <tr>
 <td> <label for="codigo_producto">Total con IVA:</label></td>
-<td><input type="text" class="form-control" name="total_factura" id = "Total_final" disabled></td>
+<td><input type="text" class="form-control" name="total_factura" id = "Total_final" readonly></td>
+<td><input type="hidden" class="form-control" name="cliente_venta" id = "cliente_venta" readonly></td>
+<td><input type="hidden" class="form-control" name="no_factura" id = "no_factura" readonly></td>
 </tr>
 </table>
 <button type="submit" class="btn btn-outline-dark" id="buscar_codigo">Confirmar</button>
@@ -99,7 +103,7 @@ $(document).ready(function() {
     $(document).on('click', '#a�adir_producto', function(){
     	var fila = $('#fila4');
     	filascant = filascant+1;
-    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">C�digo:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto'+filascant+'" id="codigo_producto'+filascant+'"></td><br><td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre('+filascant+')">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="producto'+filascant+'" id="nombre_producto'+filascant+'" disabled></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad'+filascant+'" id="cantidad_producto'+filascant+'" onchange="matematicas(this.value,'+filascant+')"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total'+filascant+'" id="total_producto'+filascant+'" class="T_producto" disabled></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="a�adir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
+    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">C�digo:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto'+filascant+'" id="codigo_producto'+filascant+'"></td><br><td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre('+filascant+')">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="producto'+filascant+'" id="nombre_producto'+filascant+'" readonly></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad'+filascant+'" id="cantidad_producto'+filascant+'" onchange="matematicas(this.value,'+filascant+')"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total'+filascant+'" id="total_producto'+filascant+'" class="T_producto" readonly></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="a�adir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
     	fila.remove();
     });
     
@@ -146,7 +150,13 @@ List<ClienteVO> listcliente = ClienteBO.obtener_todos();
 Type listTypeCliente = new TypeToken<List<ClienteVO>>() {}.getType();
 Gson gsonCliente = new Gson();
 String jsonCliente = gson.toJson(listcliente, listTypeCliente);
-System.out.println(jsonCliente);
+
+VentasBO venta = new VentasBO();
+List<VentasVO> listVenta = VentasBO.obtener_todos();
+
+Type listTypeVenta = new TypeToken<List<VentasVO>>() {}.getType();
+Gson gsonVenta = new Gson();
+String jsonVenta = gson.toJson(listVenta, listTypeVenta);
 %>
 var filas = 4;
 function productonombre(num){
@@ -175,10 +185,12 @@ function buscarcliente(){
 		if(lista_productos[i]['Cedula']==ced){
 			let name = lista_productos[i]['Nombre'];
 			var fila = $('#fila1');
-	        fila.after('<tr id="fila2"><td><label for="cedula_cliente" style=color:#fff;>Nombre Cliente:</label></td><td><input type="text" class="form-control" name="busqueda" value="'+name+'" disabled></td><td><label for="cedula_cliente" style=color:#fff;>&nbsp&nbsp&nbspNo.Factura:</label></td><td><input type="text"  class="form-control" name="nombre" value="Mickey" disabled></td><td><button type="button" class="btn btn-outline-light" id="cambiar_cliente">Escoger otro Cliente</button></td><td><button type="button" class="btn btn-outline-light" id="borrar">Borrar todo</button></td></tr>');
+	        fila.after('<tr id="fila2"><td><label for="cedula_cliente" style=color:#fff;>Nombre Cliente:</label></td><td><input type="text" class="form-control" name="busqueda" value="'+name+'" readonly></td><td><label for="cedula_cliente" style=color:#fff;>&nbsp&nbsp&nbspNo.Factura:</label></td><td><input type="text"  class="form-control" name="Nfactura" id="factura" readonly></td><td><button type="button" class="btn btn-outline-light" id="cambiar_cliente">Escoger otro Cliente</button></td><td><button type="button" class="btn btn-outline-light" id="borrar">Borrar todo</button></td></tr>');
 	        fila.remove();
 	        document.getElementById("formoculto").style.display = "block";
 			comprobar = false;
+			document.getElementById("cliente_venta").value = ced;
+			CodigoVenta();
 		}
 	}
 	if(comprobar){
@@ -218,7 +230,18 @@ function matematicas(val,num){
 		document.getElementById("Total_final").value = sumaiva+bank;
 		}
 
-
+	function CodigoVenta(){
+		let lista = <%=jsonVenta%>;
+		let i = lista.length;
+		if(i == 0){
+			document.getElementById("factura").value = i+1;
+			document.getElementById("no_factura").value = i+1;
+		}else{
+			let index = lista[i-1]['Codigo_venta']
+			document.getElementById("factura").value = 1+index;
+			document.getElementById("no_factura").value = 1+index;
+		}
+	}
 </script>
 </body>
 </html>
