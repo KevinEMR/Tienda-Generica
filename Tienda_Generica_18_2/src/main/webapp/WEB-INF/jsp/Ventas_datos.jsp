@@ -85,6 +85,8 @@ for(int j = 1;j<=index;j++){
     	System.out.println(Detalle_VentasBO.isertarestudiante(listaDetalleVentas.get(p)));
     	j = j+4;
     }
+    
+    response.sendRedirect("/Ventas");
 %>
 </body>
 </html>
