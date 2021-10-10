@@ -39,6 +39,10 @@ HttpSession sesion= request.getSession(false);
 long miproducto= (Long) sesion.getAttribute("usuario");
 listaVentas.get(0).setCedula_usuario(miproducto);
 
+List<Detalle_VentasVO> listaDetalle = Detalle_VentasBO.obtener_todos();
+int k = listaDetalle.size();
+long codigo_detalle_venta = (listaDetalle.get(k-1).getCodigo_detalle_venta())+1;
+
 for(int j = 1;j<=index;j++){
 	Detalle_VentasVO detalleventas = new Detalle_VentasVO();
 	listaDetalleVentas.add(detalleventas);
@@ -74,7 +78,7 @@ for(int j = 1;j<=index;j++){
 	
     for(int p=0;p<=index-1;p++){
     	
-    	listaDetalleVentas.get(p).setCodigo_detalle_venta(Long.parseLong(valores.get(indexx-1))+p);
+    	listaDetalleVentas.get(p).setCodigo_detalle_venta(codigo_detalle_venta+p);
     	listaDetalleVentas.get(p).setCantidad_producto(Integer.parseInt(valores.get(2+j)));
     	listaDetalleVentas.get(p).setCodigo_producto(Long.parseLong(valores.get(0+j)));
     	listaDetalleVentas.get(p).setCodigo_venta(Long.parseLong(valores.get(indexx-1)));
