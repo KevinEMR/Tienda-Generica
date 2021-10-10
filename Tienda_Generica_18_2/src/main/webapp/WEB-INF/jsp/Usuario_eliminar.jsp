@@ -14,7 +14,7 @@ if (resultado){
 	response.sendRedirect("/Usuarios");
 }
 else{
-	response.sendRedirect("/Eliminar_usuario_error");
+	response.sendRedirect("/Eliminar_usuario_error"+request.getParameter("usuario_cedula"));
 }
 %>
 </body>

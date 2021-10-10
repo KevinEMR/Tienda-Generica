@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="controlador.UsuarioBO"%>
+<%@page import="modelo.UsuarioVO"%>
 <%@page import="controlador.Control"%>
 <!DOCTYPE html>
 <html>
@@ -49,6 +50,9 @@
 		boolean result = UsuarioBO.usuario_existe(Usuario, Password);
 		System.out.println("Entro al if");
 		if(result){
+			UsuarioVO existente = UsuarioBO.obteneruno("usuario",Usuario);
+			HttpSession sesio = request.getSession(true);
+			session.setAttribute("usuario", existente.getCedula());
 			response.sendRedirect("/Usuarios");
 		} else{
 			response.sendRedirect("/Login_error");

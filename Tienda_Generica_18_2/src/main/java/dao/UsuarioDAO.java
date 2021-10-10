@@ -17,7 +17,6 @@ public class UsuarioDAO extends Conexion implements InterfaceUsarioDAO {
     Statement sm = null;
     ResultSet rs = null;
     private static List<UsuarioVO> list;
-
 	@Override
 	public boolean usuario_existe(String Usuario, String Password) {
         try {

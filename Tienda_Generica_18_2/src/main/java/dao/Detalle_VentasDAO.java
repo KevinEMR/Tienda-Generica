@@ -16,7 +16,6 @@ public class Detalle_VentasDAO extends Conexion implements InterfaceDetalle_Vent
 	ResultSet rs = null;
 	private static List<Detalle_VentasVO> list;
 
-	
 	@Override
 	public boolean isertarestudiante(Detalle_VentasVO producto) {
 		boolean resultado = true;
@@ -24,10 +23,10 @@ public class Detalle_VentasDAO extends Conexion implements InterfaceDetalle_Vent
 			sm = cn.createStatement();
 			sm.executeUpdate(
 					"INSERT INTO bd_tienda_generica_g2.detalle_ventas (codigo_detalle_venta, cantidad_producto, codigo_producto, codigo_venta, valor_total, valor_venta, valoriva)\r\n VALUES ('"
-							+ producto.getCodigo_detalle_venta() + "','" + producto.getCantidad_producto() + "','" + producto.getCodigo_producto()
-							+ "','" + producto.getCodigo_venta() + "','" + producto.getValor_total() + "','"
-							+ producto.getValoriva() + "','"
-							+ "');");
+							+ producto.getCodigo_detalle_venta() + "','" + producto.getCantidad_producto() + "','"
+							+ producto.getCodigo_producto() + "','" + producto.getCodigo_venta() + "','"
+							+ producto.getValor_total() + "','" + producto.getValor_venta() + "','"
+							+ producto.getValoriva() + "');");
 		} catch (SQLException e) {
 			System.out.println("ERROR: " + e);
 			resultado = false;
@@ -40,16 +39,14 @@ public class Detalle_VentasDAO extends Conexion implements InterfaceDetalle_Vent
 		}
 		return resultado;
 	}
-
-	
 
 	@Override
 	public boolean eliminar(long codigo_detalle_venta) {
 		boolean resultado = true;
 		try {
 			sm = cn.createStatement();
-			sm.executeUpdate(
-					"DELETE FROM bd_tienda_generica_g2.detalle_ventas\r\nWHERE codigo_producto = '" + codigo_detalle_venta + "';");
+			sm.executeUpdate("DELETE FROM bd_tienda_generica_g2.detalle_ventas\r\nWHERE codigo_producto = '"
+					+ codigo_detalle_venta + "';");
 		} catch (SQLException e) {
 			System.out.println("ERROR: " + e);
 			resultado = false;
@@ -63,7 +60,6 @@ public class Detalle_VentasDAO extends Conexion implements InterfaceDetalle_Vent
 		return resultado;
 	}
 
-	
 	@Override
 	public List<Detalle_VentasVO> obtener_todos() {
 		try {
@@ -79,7 +75,8 @@ public class Detalle_VentasDAO extends Conexion implements InterfaceDetalle_Vent
 				double valor_total = rs.getDouble(5);
 				double valor_venta = rs.getDouble(6);
 				double valoriva = rs.getDouble(7);
-				Detalle_VentasVO prod = new Detalle_VentasVO(codigo_detalle_venta, cantidad_producto, codigo_producto, codigo_venta, valor_total, valor_venta, valoriva);
+				Detalle_VentasVO prod = new Detalle_VentasVO(codigo_detalle_venta, cantidad_producto, codigo_producto,
+						codigo_venta, valor_total, valor_venta, valoriva);
 				list.add(prod);
 			}
 

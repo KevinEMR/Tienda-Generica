@@ -92,8 +92,8 @@ border-bottom: 1px solid white
     <td><%= list.get(i).getNombre()%></td>
     <td><%= list.get(i).getContraseña()%></td>
     <td><%= list.get(i).getUsuario()%></td>
-    <td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
-    <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
+ <td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
+      <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
   </tr>
   <%}}}
 else if(request.getParameter("list").equals("2")){
@@ -109,8 +109,8 @@ else if(request.getParameter("list").equals("2")){
    <td><%= list.get(i).getNombre()%></td>
    <td><%= list.get(i).getContraseña()%></td>
    <td><%= list.get(i).getUsuario()%></td>
-   <td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
-   <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
+<td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
+      <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
  </tr>
  <%}}}
 else if(request.getParameter("list").equals("3")){
@@ -126,8 +126,8 @@ else if(request.getParameter("list").equals("3")){
   <td><%= list.get(i).getNombre()%></td>
   <td><%= list.get(i).getContraseña()%></td>
   <td><%= list.get(i).getUsuario()%></td>
-  <td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
-  <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
+<td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
+      <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
 </tr>
 <%}}}
 else if(request.getParameter("list").equals("4")){
@@ -143,8 +143,8 @@ else if(request.getParameter("list").equals("4")){
   <td><%= list.get(i).getNombre()%></td>
   <td><%= list.get(i).getContraseña()%></td>
   <td><%= list.get(i).getUsuario()%></td>
-  <td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
-  <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
+<td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
+      <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
 </tr>
 <%}}}
 else if(request.getParameter("list").equals("5")){
@@ -160,8 +160,8 @@ else if(request.getParameter("list").equals("5")){
   <td><%= list.get(i).getNombre()%></td>
   <td><%= list.get(i).getContraseña()%></td>
   <td><%= list.get(i).getUsuario()%></td>
-  <td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
-  <td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
+<td><a href = "/Editar_usuario?cedula=<%= list.get(i).getCedula() %>">Editar</a></td>
+<td><a href = "/Eliminar_usuario?cedula=<%= list.get(i).getCedula() %>">Eliminar</a></td>
 </tr>
 <%}}}
 %>
