@@ -58,7 +58,7 @@ display:none;
 <table class="table table-hover">
 <tbody>
 <tr id = "fila3">
-<td><label for="codigo_producto" class="">Cï¿½digo:</label></td>
+<td><label for="codigo_producto" class="">Código:</label></td>
 <td><input type="text" class="form-control" name="busqueda_producto4" id="codigo_producto4"></td>
 <td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre(4)">Consultar</button></td>
 <td> <label for="codigo_producto">Nombre:</label></td>
@@ -69,7 +69,7 @@ display:none;
 <td><input type="text" class="form-control" name="total4" id="total_producto4"  readonly></td>
 </tr>
 <tr id="fila4">
-<td><button type="button" class="btn btn-outline-dark" id="aï¿½adir_producto">+</button><td>
+<td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td>
 </tr>
 </tbody>
 </table>
@@ -100,10 +100,10 @@ $(document).ready(function() {
 	buscarcliente();
 	}
 	
-    $(document).on('click', '#aï¿½adir_producto', function(){
+    $(document).on('click', '#añadir_producto', function(){
     	var fila = $('#fila4');
     	filascant = filascant+1;
-    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">Cï¿½digo:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto'+filascant+'" id="codigo_producto'+filascant+'"></td><br><td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre('+filascant+')">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="producto'+filascant+'" id="nombre_producto'+filascant+'" readonly></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad'+filascant+'" id="cantidad_producto'+filascant+'" onchange="matematicas(this.value,'+filascant+')"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total'+filascant+'" id="total_producto'+filascant+'" class="T_producto" readonly></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="aï¿½adir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
+    	fila.after('<tr id="fila'+filascant+'" ><td><label for="codigo_producto" class="">Código:</label></td><br><td><input type="text" class="form-control" name="busqueda_producto'+filascant+'" id="codigo_producto'+filascant+'"></td><br><td><button type="button" class="btn btn-outline-dark" class="codigo" onclick="productonombre('+filascant+')">Consultar</button></td><br><td> <label for="codigo_producto">Nombre:</label></td><br><td><input type="text" class="form-control" name="producto'+filascant+'" id="nombre_producto'+filascant+'" readonly></td><br><td> <label for="codigo_producto">Cantidad:</label></td><br><td><input type="text" class="form-control" name="cantidad'+filascant+'" id="cantidad_producto'+filascant+'" onchange="matematicas(this.value,'+filascant+')"></td><br><td> <label for="codigo_producto">Vlr.Total:</label></td><br><td><input type="text" class="form-control" name="total'+filascant+'" id="total_producto'+filascant+'" class="T_producto" readonly></td></tr><tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td><td><button type="button" class="btn btn-outline-dark" id="eliminar_producto">-</button><td></tr>');
     	fila.remove();
     });
     
@@ -116,7 +116,7 @@ $(document).ready(function() {
     	   else if(filascant==5){
     		var fila = $('#fila'+filascant);
    	    	var fila2 = $('#fila4');
-   	    	fila2.after('<tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="aï¿½adir_producto">+</button><td></tr>');
+   	    	fila2.after('<tr id="fila4"><td><button type="button" class="btn btn-outline-dark" id="añadir_producto">+</button><td></tr>');
    	    	fila2.remove();
    	    	fila.remove();
    	    	filascant = filascant-1;

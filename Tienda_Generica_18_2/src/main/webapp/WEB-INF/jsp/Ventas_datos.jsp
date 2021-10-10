@@ -17,7 +17,6 @@
 </head>
 <body>
 <%
-
 Map m=request.getParameterMap();
 Set s = m.entrySet();
 Iterator it = s.iterator();
