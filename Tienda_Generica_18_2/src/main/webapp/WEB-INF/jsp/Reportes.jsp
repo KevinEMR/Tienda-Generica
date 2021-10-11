@@ -53,7 +53,7 @@ padding:15px;
 </table>
 </form>
 <div id="formoculto">
-<form id = "Listado_usuarios" action="/Reportes">
+<form id = "Listado_usuarios" action="/Reportes" method="post" >
 <table class="table table-hover">
 <tbody>
 <tr id = "fila1">

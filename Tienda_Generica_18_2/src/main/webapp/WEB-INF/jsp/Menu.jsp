@@ -56,7 +56,7 @@ background-color: darkgrey;
           <a class="nav-link" id = "Vent"  href="/Ventas">Ventas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id = "Repor" href="#">Reportes</a>
+          <a class="nav-link" id = "Repor" href="/Reportes">Reportes</a>
         </li>
       </ul>
     </div>
