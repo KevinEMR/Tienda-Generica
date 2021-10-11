@@ -227,10 +227,17 @@ public class Control {
 	public static String detalle_ventas() {
 		return "Ventas_datos";
 	}
+	
 	@RequestMapping("/Reportes")
 	public static String reportes() {
 		System.out.println("Entro al metodo");
 		return "Reportes";
+    }
+	
+	@RequestMapping("/Reportes_clientes")
+	public static String reportes_clientes() {
+		System.out.println("Entro al metodo");
+		return "Reportes_clientes";
     }
 }	
 
