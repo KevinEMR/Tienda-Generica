@@ -24,14 +24,20 @@ border-bottom: 1px solid white
 </style>
 </head>
 
-<form id = "reportes_back"></form>
-<form action="/Reportes" id ="reportes_back" method = post></form>
-<button type="button" class="btn btn-secondary">Volver</button>
 
+<form id = "redirect"></form>
+<form action="/Reportes/redirect" id ="redirect" method = get></form>
+<button type="submit" class="btn btn-secondary" >Volver</button>
 
 
 <body>
 <jsp:include page = "Menu.jsp"></jsp:include>
+<figure class="text-center">
+	<blockquote class="blockquote">
+		<p class="display-4 fw-normal">Listado de clientes</p>
+	</blockquote>
+</figure>
+	
 <table class="table table-hover">
   <thead class = "table-dark">
     <tr>

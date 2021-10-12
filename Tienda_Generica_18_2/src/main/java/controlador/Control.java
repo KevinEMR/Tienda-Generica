@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -232,12 +233,18 @@ public class Control {
 	public static String reportes() {
 		System.out.println("Entro al metodo");
 		return "Reportes";
-    }
+	}	
+	
 	
 	@RequestMapping("/Reportes_clientes")
 	public static String reportes_clientes() {
 		System.out.println("Entro al metodo");
 		return "Reportes_clientes";
     }
+	
+	@RequestMapping(value = "/redirect", method = RequestMethod.GET)
+	public String redirect() {
+		return "Reportes";
+	}
 }	
 
