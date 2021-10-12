@@ -10,87 +10,109 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Reportes</title>
-<style type="text/css">
-#Repor{
-color:black;
-}
-#listado_usuarios{
-margin-top: 150px;
-margin-left: 600px;
-background-color:#212529;
-padding:15px;
-}
-#reportes_clientes{
-margin-left: 600px;
-background-color:#212529;
-padding:15px;
-}
-#listado_ventas{
-margin-left: 600px;
-background-color:#212529;
-padding:15px;
-}
-.campos{
-	margin-top: 30px;
-	margin-left: 200px;
-}
-.tventa{
-	margin-top: 30px;
-	margin-left: 700px;
-}
-</style>
+
+
+<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="pricing.css" rel="stylesheet">
+  </head>
 </head>
-<body>
 
 <jsp:include page = "Menu.jsp"></jsp:include>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src=""></script>
-<form id = "Listado_usuarios">
-	<table>
-		<tr id = "fila1">
-			<td><button type="submit" class="btn btn-outline-light" id="listado_usuarios">Listado de Usuarios</button></td>
-		</tr>
-	</table>
-</form>
-<div id="formoculto">
-	<form id = "Listado_usuarios" action="/Reportes" method="post" >
-		<table class="table table-hover">
-<tbody>
-			<tr id = "fila1">
-			</tr>
-		</table>
-	</form>
-</div>
 
-
-<form id = "reportes_clientes">
-<table>
-</table>
-</form>
-<div id="formoculto">
-<form action="/Reportes_clientes" id = "reportes_clientes"  method = post>
-<button type= "submit" class="btn btn-outline-light">Listado de Clientes</button>
-<table class="table table-hover">
-<tbody>
-<tr id = "fila2">
-</tr>
-</table>
-</form>
-</div>
-<form id = "Listado_ventas">
-<table>
-<tr id = "fila3">
-<td><button type="submit" class="btn btn-outline-light" id="listado_ventas">Listado de Ventas</button></td>
-</tr>
-</table>
-</form>
-<div id="formoculto">
-<form id = "Listado_ventas" action="/Reportes">
-<table class="table table-hover">
-<tbody>
-<tr id = "fila3">
-</tr>
-</table>
-</form>
-</div>
+<body>
+	<div class="container py-3">
+		<header>
+			<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+				<h1 style="margin-top:2px; font-family: Playfair Display; !important" align="center">Tipos de Reporte</h1>
+				<p class="fs-5 text-muted">
+				"En esta sección usted podrá seleccionar el reporte que desea ver. Recuerde que de necesitar realizar modificaciones a los datos, deberá dirigirse a la pestaña del menú respectiva. Ésta sección es solo de visualización y funge a manera de resumen de los datos relevantes de su negocio."
+				</p>
+			</div>
+		</header>
+		<main>
+			<div class="d-flex bd-highlight">
+				<div class="p-2 flex-fill bd-highlight">
+        			<div class="card mb-4 rounded-3 shadow-sm">
+         				<div class="card-header py-3">
+            				<h4 class="my-0 fw-normal">Reporte Usuarios</h4>
+          				</div>
+          				<div class="card-body">
+            				<h1 class="card-title pricing-card-title">Lista<small class="text-muted fw-light">/usuarios</small></h1>
+            				<ul class="list-unstyled mt-3 mb-4">
+             					<li>Documento de Identificación</li>
+             					<li>Nombre</li>
+              					<li>Correo Electrónico</li>
+             					<li>Usuario Sistema</li>
+             					<li>Contraseña acceso</li>
+            				</ul>
+           					<button type="submit" class="w-100 btn btn-lg btn-outline-primary">Ver
+           					</button>
+         			 	</div>
+       			 	</div>
+      			</div>
+      			<div  class="p-2 flex-fill bd-highlight">
+        			<div class="card mb-4 rounded-3 shadow-sm">
+          				<div class="card-header py-3">
+           					<h4 class="my-0 fw-normal">Reporte Clientes</h4>
+          				</div>
+          				<div class="card-body">
+            				<h1 class="card-title pricing-card-title">Lista<small class="text-muted fw-light">/clientes</small></h1>
+           					<ul class="list-unstyled mt-3 mb-4">
+				              	<li>Cédula</li>
+				              	<li>Nombre Completo</li>
+				              	<li>Correo Electrónico</li>
+				              	<li>Dirección Residencia</li>
+				              	<li>Teléfono (Fijo/Movil)</li>
+            				</ul>
+            				<form action="/Reportes_clientes">
+            					<button type="submit" class="w-100 btn btn-lg btn-outline-primary">Ver
+            					</button></form>		
+          				</div>
+        			</div>
+      			</div>
+      			<div  class="p-2 flex-fill bd-highlight">
+        			<div class="card mb-4 rounded-3 shadow-sm">
+         				<div class="card-header py-3">
+            				<h4 class="my-0 fw-normal">Reporte de Ventas</h4>
+          				</div>
+          				<div class="card-body">
+            				<h1 class="card-title pricing-card-title">Lista<small class="text-muted fw-light">/ventas</small></h1>
+				            <ul class="list-unstyled mt-3 mb-4">
+				              	<li>Cédula Cliente</li>
+				              	<li>Nombre Completo Cliente</li>
+				              	<li>Valor Total Venta por Cliente</li>
+				              	<li>Total Ventas Global</li>
+				            </ul>
+            				<button type="submit" class="w-100 btn btn-lg btn-outline-primary">Ver</button>
+          				</div>
+        			</div>
+      			</div>
+			</div>
+		</main>
+	</div>
 </body>
+</html>

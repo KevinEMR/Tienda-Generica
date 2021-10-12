@@ -246,5 +246,6 @@ public class Control {
 	public String redirect() {
 		return "Reportes";
 	}
+		
 }	
 
