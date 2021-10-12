@@ -23,16 +23,15 @@ border-bottom: 1px solid white
 }
 </style>
 </head>
+
+<form id = "reportes_back"></form>
+<form action="/Reportes" id ="reportes_back" method = post></form>
+<button type="button" class="btn btn-secondary">Volver</button>
+
+
+
 <body>
 <jsp:include page = "Menu.jsp"></jsp:include>
-<table>
-<tr>
-<th>
-</th>
-<th>
-</th>
-</tr>
-</table>
 <table class="table table-hover">
   <thead class = "table-dark">
     <tr>

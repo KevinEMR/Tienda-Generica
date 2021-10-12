@@ -46,20 +46,20 @@ padding:15px;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src=""></script>
 <form id = "Listado_usuarios">
-<table>
-<tr id = "fila1">
-<td><button type="submit" class="btn btn-outline-light" id="listado_usuarios">Listado de Usuarios</button></td>
-</tr>
-</table>
+	<table>
+		<tr id = "fila1">
+			<td><button type="submit" class="btn btn-outline-light" id="listado_usuarios">Listado de Usuarios</button></td>
+		</tr>
+	</table>
 </form>
 <div id="formoculto">
-<form id = "Listado_usuarios" action="/Reportes" method="post" >
-<table class="table table-hover">
+	<form id = "Listado_usuarios" action="/Reportes" method="post" >
+		<table class="table table-hover">
 <tbody>
-<tr id = "fila1">
-</tr>
-</table>
-</form>
+			<tr id = "fila1">
+			</tr>
+		</table>
+	</form>
 </div>
 
 
