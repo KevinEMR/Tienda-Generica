@@ -241,11 +241,6 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Reportes_clientes";
     }
-	
-	@RequestMapping(value = "/redirect", method = RequestMethod.GET)
-	public String redirect() {
-		return "Reportes";
-	}
 		
 }	
 
