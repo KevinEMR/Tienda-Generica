@@ -11,14 +11,6 @@
 <meta charset="ISO-8859-1">
 <title>Reportes</title>
 
-
-<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
-<meta name="theme-color" content="#7952b3">
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -35,10 +27,6 @@
       }
     </style>
 
-    
-    <!-- Custom styles for this template -->
-    <link href="pricing.css" rel="stylesheet">
-  </head>
 </head>
 
 <jsp:include page = "Menu.jsp"></jsp:include>
@@ -54,7 +42,7 @@
 			</div>
 		</header>
 		<main>
-			<div class="d-flex bd-highlight">
+			<div class="d-flex bd-highlight" style="align-items: flex-end;">
 				<div class="p-2 flex-fill bd-highlight">
         			<div class="card mb-4 rounded-3 shadow-sm">
          				<div class="card-header py-3">
@@ -97,7 +85,7 @@
       			<div  class="p-2 flex-fill bd-highlight">
         			<div class="card mb-4 rounded-3 shadow-sm">
          				<div class="card-header py-3">
-            				<h4 class="my-0 fw-normal">Reporte de Ventas</h4>
+            				<h4 class="my-0 fw-normal">Reporte Ventas</h4>
           				</div>
           				<div class="card-body">
             				<h1 class="card-title pricing-card-title">Lista<small class="text-muted fw-light">/ventas</small></h1>
