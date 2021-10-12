@@ -26,7 +26,7 @@ border-bottom: 1px solid white
 
 
 <form id = "redirect"></form>
-<form action="/Reportes" id ="redirect" method = get>
+<form action="/Reportes" id ="redirect" method = post>
 <button type="submit" class="btn btn-secondary" >Volver</button>
 </form>
 
