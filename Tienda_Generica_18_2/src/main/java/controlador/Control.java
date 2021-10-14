@@ -245,6 +245,9 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Reportes_usuarios";
     }
-		
-}	
-
+	@RequestMapping("/Reportes_ventas")
+	public static String reportes_ventas() {
+		System.out.println("Entro al metodo");
+		return "Reportes_ventas";	
+	}	
+}
