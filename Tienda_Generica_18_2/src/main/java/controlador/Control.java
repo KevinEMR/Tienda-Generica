@@ -233,8 +233,7 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Reportes";
 	}	
-	
-	
+
 	@RequestMapping("/Reportes_clientes")
 	public static String reportes_clientes() {
 		System.out.println("Entro al metodo");
@@ -245,9 +244,10 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Reportes_usuarios";
     }
+	
 	@RequestMapping("/Reportes_ventas")
 	public static String reportes_ventas() {
-		System.out.println("Entro al metodo");
+		System.out.println("Entro al metodo reporte ventas");
 		return "Reportes_ventas";	
 	}	
 }

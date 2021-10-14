@@ -9,7 +9,7 @@
 <meta charset="ISO-8859-1">
 <title>Reportes_clientes</title>
 <style type="text/css">
-#Clien {
+#Repor {
 	color: black;
 }
 
@@ -47,7 +47,7 @@
 		</thead>
 		<tbody>
 			<%
-			if (request.getParameter("list") == null || request.getParameter("list").equals("0")) {
+			
 				ClienteBO cliente = new ClienteBO();
 				List<ClienteVO> list = ClienteBO.obtener_todos();
 				if (list != null) {
@@ -65,7 +65,7 @@
 			<%
 			}
 			}
-			}
+			
 			%>
 		</tbody>
 	</table>

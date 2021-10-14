@@ -60,7 +60,7 @@ background-color: darkgrey;
           <ul style="position:absolute">
           <li><a href="/Reportes_usuarios" class="nav-link" style="width:200%">Usuarios</a></li>
           <li><a href="/Reportes_clientes" class="nav-link" style="width:200%">Clientes</a></li>
-          <li><a href="#" class="nav-link" style="width:200%">Ventas</a></li>
+          <li><a href="/Reportes_ventas" class="nav-link" style="width:200%">Ventas</a></li>
           </ul>
         </li>
       </ul>
