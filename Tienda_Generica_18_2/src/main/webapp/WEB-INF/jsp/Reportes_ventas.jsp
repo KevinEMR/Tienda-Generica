@@ -3,6 +3,7 @@
 <%@page import="modelo.VentasVO"%>
 <%@page import="modelo.ClienteVO"%>
 <%@page import="java.util.List"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -21,6 +22,10 @@ padding:15px;
 background-color:#212529;
 padding:10px;
 border-bottom: 1px solid white
+}
+#valorfinal{
+border:1px solid #7096bd;
+margin-inline:auto;
 }
 </style>
 </head>
@@ -46,20 +51,32 @@ border-bottom: 1px solid white
   <% 
 	  VentasBO usuario = new VentasBO();
 	  List<VentasVO> list = VentasBO.obtener_todos();
+	  DecimalFormat formato1 = new DecimalFormat("#.00");
+	  double total_final = 0;
 	  if(list != null){
   		for(int i = 0;i<list.size();i++){ 
   			ClienteBO usuarios = new ClienteBO();
   			ClienteVO cliente = ClienteBO.obteneruno("cedula_cliente", Long.toString(list.get(i).getCedula_cliente()));
+  			total_final += list.get(i).getTotal_venta();
+  			
   
   %>
     <tr>
       <th scope="row"><%= list.get(i).getCedula_cliente()%> </th>
       <td><%= cliente.getNombre()%></td>      
-      <td><%= list.get(i).getTotal_venta()%></td>
+      <td><%= formato1.format(list.get(i).getTotal_venta())%></td>
     </tr>
     <%}}
 %>
   </tbody>
+</table>
+<table id="valorfinal">
+<tbody>
+<tr>
+<td><label for="total">Vlr.Total de Ventas:</label></td>
+<td><input type="text" class="form-control" name="total_ventas" id="total_final" value="<%=formato1.format(total_final)%>" readonly></td>
+</tr>
+</tbody>
 </table>
 </body>
 </html>
