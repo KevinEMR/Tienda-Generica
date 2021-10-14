@@ -58,7 +58,7 @@ background-color: darkgrey;
         <li class="nav-item">
           <a class="nav-link dropdown-toggle" id = "Repor" href="/Reportes">Reportes</a>
           <ul style="position:absolute">
-          <li><a href="#" class="nav-link" style="width:200%">Usuarios</a></li>
+          <li><a href="/Reportes_usuarios" class="nav-link" style="width:200%">Usuarios</a></li>
           <li><a href="/Reportes_clientes" class="nav-link" style="width:200%">Clientes</a></li>
           <li><a href="#" class="nav-link" style="width:200%">Ventas</a></li>
           </ul>
