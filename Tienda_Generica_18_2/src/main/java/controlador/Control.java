@@ -240,6 +240,11 @@ public class Control {
 		System.out.println("Entro al metodo");
 		return "Reportes_clientes";
     }
+	@RequestMapping("/Reportes_usuarios")
+	public static String reportes_usuarios() {
+		System.out.println("Entro al metodo");
+		return "Reportes_usuarios";
+    }
 		
 }	
 

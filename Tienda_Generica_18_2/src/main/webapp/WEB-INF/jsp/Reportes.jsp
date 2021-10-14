@@ -57,8 +57,9 @@
              					<li>Usuario Sistema</li>
              					<li>Contraseña acceso</li>
             				</ul>
-           					<button type="submit" class="w-100 btn btn-lg btn-outline-primary">Ver
-           					</button>
+           					<form action="/Reportes_usuarios">
+            					<button type="submit" class="w-100 btn btn-lg btn-outline-primary">Ver
+            					</button></form>		
          			 	</div>
        			 	</div>
       			</div>
